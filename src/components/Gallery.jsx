@@ -10,11 +10,11 @@ const Gallery = ({ data }) => {
           <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium">হাজিয়ান গ্রামের প্রাকৃতিক সৌন্দর্য ও প্রাত্যহিক জীবনের কিছু স্থিরচিত্র।</p>
         </div>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map((item) => (
             <div 
               key={item.id} 
-              className="relative group overflow-hidden rounded-[2.5rem] bg-slate-100 shadow-xl hover:shadow-2xl transition-all duration-700 break-inside-avoid"
+              className="relative group overflow-hidden rounded-[2.5rem] bg-slate-100 shadow-xl hover:shadow-2xl transition-all duration-700"
             >
               <img
                 src={item.url}

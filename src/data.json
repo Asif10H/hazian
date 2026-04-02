@@ -6,11 +6,11 @@
     "heroSection": {
       "title": "হাজিয়ান গ্রামে স্বাগতম",
       "subtitle": "কক্সবাজারের চকরিয়ায় অবস্থিত ফাঁসিয়াখালী ইউনিয়নের অন্তর্গত হাজিয়ান গ্রামের প্রাকৃতিক সৌন্দর্য এবং সমৃদ্ধ ইতিহাস অনুভব করুন।",
-      "imageUrl": "https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+      "imageUrl": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_2394.JPEG"
     },
     "about": {
       "title": "আমাদের গ্রাম",
-      "description": "হাজিয়ান চকরিয়ার ফাঁসিয়াখালী ইউনিয়নের ১ নং ওয়ার্ডে অবস্থিত একটি ঐতিহাসিক এবং সুন্দর গ্রাম। মাতামুহুরী নদীর কাছাকাছি অবস্থিত এই গ্রামটি সবুজে ঘেরা এবং ফকিরআকিলপাড়া, আমতলীপাড়া ও মাদ্রাসাপাড়ার মতো এলাকা নিয়ে গঠিত।",
+      "description": "হাজিয়ান চকরিয়ার ফাঁসিয়াখালী ইউনিয়নের ১ নং ওয়ার্ডে অবস্থিত একটি ঐতিহাসিক এবং সুন্দর গ্রাম। মাতামুহুরী নদীর কাছাকাছি অবস্থিত এই গ্রামটি সবুজে ঘেরা এবং ফকিরআকিলপাড়া, নিমতলী, আমতলীপাড়া ও চেয়ারম্যান পাড়া মতো এলাকা নিয়ে গঠিত।",
       "stats": [
         { "label": "জনসংখ্যা", "value": "২,৮৫৯ +" },
         { "label": "ইউনিয়ন", "value": "ফাঁসিয়াখালী" },
@@ -216,18 +216,83 @@
     "gallery": [
       {
         "id": 1,
-        "title": "সবুজ শস্যক্ষেত",
-        "url": "https://images.pexels.com/photos/259280/pexels-photo-259280.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+        "title": "হাজিয়ানের দৃশ্য ১",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_4129.HEIC"
       },
       {
         "id": 2,
-        "title": "মাতামুহুরী নদীর দৃশ্য",
-        "url": "https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+        "title": "হাজিয়ানের দৃশ্য ২",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_4148.HEIC"
       },
       {
         "id": 3,
-        "title": "গ্রামের মেঠো পথ",
-        "url": "https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+        "title": "হাজিয়ানের দৃশ্য ৩",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_1871.HEIC"
+      },
+      {
+        "id": 4,
+        "title": "হাজিয়ানের দৃশ্য ৪",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_6541.HEIC"
+      },
+      {
+        "id": 5,
+        "title": "হাজিয়ানের দৃশ্য ৫",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_2394.JPEG"
+      },
+      {
+        "id": 6,
+        "title": "হাজিয়ানের দৃশ্য ৬",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_1199.HEIC"
+      },
+      {
+        "id": 7,
+        "title": "হাজিয়ানের দৃশ্য ৭",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_3527.HEIC"
+      },
+      {
+        "id": 8,
+        "title": "হাজিয়ানের দৃশ্য ৮",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_2162.HEIC"
+      },
+      {
+        "id": 9,
+        "title": "হাজিয়ানের দৃশ্য ৯",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_1218.HEIC"
+      },
+      {
+        "id": 10,
+        "title": "হাজিয়ানের দৃশ্য ১০",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_6556.HEIC"
+      },
+      {
+        "id": 11,
+        "title": "হাজিয়ানের দৃশ্য ১১",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_3529.HEIC"
+      },
+      {
+        "id": 12,
+        "title": "হাজিয়ানের দৃশ্য ১২",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_4075.HEIC"
+      },
+      {
+        "id": 13,
+        "title": "হাজিয়ানের দৃশ্য ১৩",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_0208.HEIC"
+      },
+      {
+        "id": 14,
+        "title": "হাজিয়ানের দৃশ্য ১৪",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/dmitry-zmiy-BRhIo8a1i-k-unsplash.jpg"
+      },
+      {
+        "id": 15,
+        "title": "হাজিয়ানের দৃশ্য ১৫",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_2135.HEIC"
+      },
+      {
+        "id": 16,
+        "title": "হাজিয়ানের দৃশ্য ১৬",
+        "url": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_8541.HEIC"
       }
     ],
     "noticeBoard": [

@@ -18,7 +18,7 @@ const About = ({ data }) => {
 
             <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
               <img
-                src="https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
+                src="https://ik.imagekit.io/pswee0uqu/hazian/IMG_4148.HEIC"
                 className="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/40 via-transparent to-transparent" />
