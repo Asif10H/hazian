@@ -53,7 +53,7 @@ const About = ({ data }) => {
                 return (
                   <div
                     key={index}
-                    className="p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl group transition-all duration-300"
+                    className="p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl group transition-all duration-300 flex flex-col items-center text-center"
                   >
                     <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-all">
                       <Icon size={24} />
@@ -61,7 +61,7 @@ const About = ({ data }) => {
                     <div className="text-3xl font-black text-slate-900 mb-1">
                       {stat.value}
                     </div>
-                    <div className="text-sm font-bold text-slate-500 uppercase tracking-widest">
+                    <div className="text-sm font-bold text-slate-500 uppercase tracking-widest text-center">
                       {stat.label}
                     </div>
                   </div>
