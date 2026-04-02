@@ -47,7 +47,7 @@ const About = ({ data }) => {
               {data.description}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-0 sm:mb-12">
               {data.stats.map((stat, index) => {
                 const Icon = icons[index] || CheckCircle2;
                 return (
@@ -69,7 +69,7 @@ const About = ({ data }) => {
               })}
             </div>
 
-            <div className="flex gap-4">
+            <div className="hidden sm:flex gap-4">
               <a
                 href="#history"
                 className="px-8 py-3.5 rounded-2xl bg-slate-900 text-white font-bold hover:bg-slate-800 transition-all flex items-center gap-2 group"
