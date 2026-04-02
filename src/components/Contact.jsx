@@ -16,7 +16,7 @@ const Contact = ({ data }) => {
 
             <div className="space-y-10 relative z-10">
               <div className="flex items-center gap-6">
-                <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md">
+                <div className="w-14 h-14 shrink-0 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md">
                   <MapPin size={24} />
                 </div>
                 <div>
@@ -26,7 +26,7 @@ const Contact = ({ data }) => {
               </div>
 
               <div className="flex items-center gap-6 group/item cursor-pointer">
-                <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
+                <div className="w-14 h-14 shrink-0 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
                   <Mail size={24} />
                 </div>
                 <div>
@@ -36,7 +36,7 @@ const Contact = ({ data }) => {
               </div>
 
               <div className="flex items-center gap-6 group/item cursor-pointer">
-                <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
+                <div className="w-14 h-14 shrink-0 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
                   <Phone size={24} />
                 </div>
                 <div>
