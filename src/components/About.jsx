@@ -25,9 +25,7 @@ const About = ({ data }) => {
             </div>
 
             <div className="absolute top-4 right-4 sm:top-8 sm:right-8 z-20 bg-white/90 backdrop-blur-md p-5 sm:p-6 rounded-[1.5rem] sm:rounded-3xl shadow-xl border border-white/50 max-w-[160px] sm:max-w-[180px] hover:scale-105 transition-transform">
-              <div className="text-brand-primary font-black text-3xl mb-1">
-                ১০০%
-              </div>
+
               <div className="text-slate-600 text-sm font-bold uppercase tracking-wider">
                 সৌহার্দ্যপূর্ণ গ্রাম
               </div>

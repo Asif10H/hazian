@@ -19,14 +19,14 @@ const Navbar = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           
-          <div className="flex items-center gap-2 group cursor-pointer">
+          <a href="#home" className="flex items-center gap-2 group cursor-pointer no-underline">
             <div className="p-2 rounded-xl transition-all duration-300 bg-emerald-600 text-white shadow-md">
               <MapPin size={24} className="group-hover:scale-110 transition-transform" />
             </div>
             <span className="font-sans font-bold text-2xl tracking-tighter transition-colors text-slate-900">
               {data.name}
             </span>
-          </div>
+          </a>
 
           <div className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link, index) => (
