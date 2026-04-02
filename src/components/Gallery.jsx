@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { X } from 'lucide-react';
 
 const Gallery = ({ data }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <section id="gallery" className="section-padding bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,30 +14,63 @@ const Gallery = ({ data }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {data.map((item) => (
-            <div 
-              key={item.id} 
-              className="relative group overflow-hidden rounded-[2.5rem] bg-slate-100 shadow-xl hover:shadow-2xl transition-all duration-700"
-            >
-              <img
-                src={item.url}
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 aspect-[4/5]"
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex flex-col justify-end p-10">
-                 <h3 className="text-2xl font-black text-white">
-                    {item.title}
-                 </h3>
-                 <p className="text-white/70 font-medium">
-                    হাজিয়ান, চকরিয়া
-                 </p>
+          {data.map((item) => {
+            const thumbnailUrl = item.url.includes('?') 
+              ? `${item.url}&tr=w-600,f-auto,q-70` 
+              : `${item.url}?tr=w-600,f-auto,q-70`;
+
+            const fullUrl = item.url.includes('?')
+              ? `${item.url}&tr=f-auto`
+              : `${item.url}?tr=f-auto`;
+
+            return (
+              <div 
+                key={item.id} 
+                className="relative group overflow-hidden rounded-[2.5rem] bg-slate-100 shadow-xl hover:shadow-2xl transition-all duration-700 cursor-pointer"
+                onClick={() => setSelectedImage({ title: item.title, url: fullUrl })}
+              >
+                <img
+                  src={thumbnailUrl}
+                  alt={item.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 aspect-[4/5]"
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex flex-col justify-end p-10">
+                   <h3 className="text-2xl font-black text-white">
+                      {item.title}
+                   </h3>
+                   <p className="text-white/70 font-medium">
+                      হাজিয়ান, চকরিয়া
+                   </p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>
+
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-md transition-all duration-300"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute top-4 right-4 sm:top-8 sm:right-8 w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors z-50"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={24} />
+          </button>
+          
+          <img 
+            src={selectedImage.url} 
+            alt={selectedImage.title} 
+            className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl animate-in zoom-in duration-300"
+            onClick={(e) => e.stopPropagation()} 
+          />
+        </div>
+      )}
     </section>
   );
 };
