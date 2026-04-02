@@ -21,17 +21,6 @@ const Footer = () => {
             <a href="#contact" className="hover:text-emerald-600 transition-colors">যোগাযোগ</a>
           </div>
 
-          <div className="flex gap-4">
-             <a href="#" className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-600 hover:bg-emerald-600 hover:text-white transition-all shadow-sm">
-                <Globe size={22} />
-             </a>
-             <a href="#" className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-600 hover:bg-emerald-600 hover:text-white transition-all shadow-sm">
-                <MessageCircle size={22} />
-             </a>
-             <a href="#" className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-600 hover:bg-emerald-600 hover:text-white transition-all shadow-sm">
-                <Share2 size={22} />
-             </a>
-          </div>
         </div>
         
         <div className="pt-10 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold text-slate-400">
