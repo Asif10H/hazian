@@ -30,13 +30,13 @@ const EmergencyContacts = ({ data }) => {
                <a 
                  key={index} 
                  href={`tel:${contact.phone}`}
-                 className="group p-8 rounded-[2.5rem] bg-white border border-transparent shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:bg-emerald-50 flex flex-col items-center text-center"
+                 className="group p-6 rounded-[2.5rem] bg-white border border-transparent shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:bg-emerald-50 flex flex-col items-center text-center"
                >
                   <div className="w-16 h-16 rounded-3xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all transform group-hover:scale-110 group-hover:rotate-3 shadow-sm">
                      <Icon size={32} />
                   </div>
-                  <h3 className="text-2xl font-black text-slate-900 mb-2">{contact.name}</h3>
-                  <div className="text-xl font-bold bg-slate-900 text-white px-4 py-2 rounded-xl group-hover:bg-emerald-500 transition-colors shadow-lg">
+                  <h3 className="text-xl font-black text-slate-900 mb-3 whitespace-nowrap">{contact.name}</h3>
+                  <div className="text-lg md:text-xl font-bold bg-slate-900 text-white px-4 py-2 rounded-xl group-hover:bg-emerald-500 transition-colors shadow-lg whitespace-nowrap">
                      {contact.phone}
                   </div>
                   <div className="mt-4 text-emerald-700 font-bold opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">

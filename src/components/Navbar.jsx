@@ -9,6 +9,7 @@ const Navbar = ({ data }) => {
     { name: 'সম্পর্কে', href: '#about' },
     { name: 'প্রতিষ্ঠান', href: '#institutions' },
     { name: 'জনপ্রতিনিধি', href: '#representatives' },
+    { name: 'কৃতি সন্তান', href: '#notables' },
     { name: 'সেবা', href: '#services' },
     { name: 'জরুরী', href: '#emergency' },
     { name: 'গ্যালারি', href: '#gallery' },
