@@ -7,93 +7,24 @@
   সাইটের সকল গুরুত্বপূর্ণ URL খুঁজে পেতে সাহায্য করে।
   
   যেহেতু এটি একটি Single Page Application (SPA), 
-  তাই মূল URL এবং হ্যাশ (#) ভিত্তিক সেকশনগুলোকে 
-  এখানে তালিকাভুক্ত করা হয়েছে।
+  শুধুমাত্র মূল URL তালিকাভুক্ত করা হয়েছে।
+  Google হ্যাশ (#) ফ্র্যাগমেন্ট ক্রল করে না, তাই 
+  সেগুলো এখান থেকে সরানো হয়েছে।
   
-  ভবিষ্যতে যদি নতুন পেজ (যেমন /about, /history) যুক্ত হয়,
-  সেগুলোও এই ফাইলে যুক্ত করতে হবে।
+  ভবিষ্যতে যদি আলাদা রাউট (যেমন /about, /history) 
+  যুক্ত হয়, সেগুলো এই ফাইলে যুক্ত করতে হবে।
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <!-- =============================== -->
   <!-- মূল পেজ (Homepage) — সর্বোচ্চ অগ্রাধিকার -->
+  <!-- SPA হওয়ায় এটিই একমাত্র crawlable URL -->
   <!-- =============================== -->
   <url>
     <loc>https://hazian.ami.bd/</loc>
     <lastmod>2026-04-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-
-  <!-- =============================== -->
-  <!-- সেকশন-ভিত্তিক URL সমূহ -->
-  <!-- SPA তে হ্যাশ ফ্র্যাগমেন্ট (#) গুগল সরাসরি -->
-  <!-- ক্রল করে না, তবে এগুলো কনটেন্ট রেফারেন্স -->
-  <!-- হিসেবে কাজ করে। ভবিষ্যতে আলাদা রাউট হলে -->
-  <!-- হ্যাশ বাদ দিয়ে পূর্ণ URL ব্যবহার করুন। -->
-  <!-- =============================== -->
-
-  <!-- পরিচিতি / About সেকশন -->
-  <url>
-    <loc>https://hazian.ami.bd/#about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- ইতিহাস সেকশন -->
-  <url>
-    <loc>https://hazian.ami.bd/#history</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- প্রতিষ্ঠান সেকশন -->
-  <url>
-    <loc>https://hazian.ami.bd/#institutions</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- জনপ্রতিনিধি সেকশন -->
-  <url>
-    <loc>https://hazian.ami.bd/#representatives</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- কৃতি সন্তান সেকশন -->
-  <url>
-    <loc>https://hazian.ami.bd/#notables</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- নাগরিক সেবা সেকশন -->
-  <url>
-    <loc>https://hazian.ami.bd/#services</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- জরুরী যোগাযোগ সেকশন -->
-  <url>
-    <loc>https://hazian.ami.bd/#emergency</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- গ্যালারি সেকশন -->
-  <url>
-    <loc>https://hazian.ami.bd/#gallery</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <!-- যোগাযোগ সেকশন -->
-  <url>
-    <loc>https://hazian.ami.bd/#contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 
 </urlset>

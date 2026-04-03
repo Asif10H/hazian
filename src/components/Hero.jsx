@@ -20,6 +20,16 @@ const Hero = ({ data }) => {
         }}
       >
         <div className="absolute inset-0 bg-slate-950/40 mix-blend-multiply" />
+        {/* Hidden img for SEO — Google can index this with proper alt text */}
+        <img
+          src={data.imageUrl}
+          alt="হাজিয়ান গ্রামের প্রাকৃতিক দৃশ্য — মাতামুহুরী নদীর তীরে সবুজ প্রকৃতি, চকরিয়া, কক্সবাজার"
+          width="1200"
+          height="630"
+          className="sr-only"
+          aria-hidden="true"
+          loading="eager"
+        />
       </div>
 
       {/* Complex Gradients for Depth */}

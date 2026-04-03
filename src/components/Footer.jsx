@@ -13,13 +13,13 @@ const Footer = () => {
             <p className="text-slate-500 font-medium leading-relaxed">চকরিয়ার ফাঁসিয়াখালী ইউনিয়নের অন্তর্গত ১ নং ওয়ার্ডের সকল তথ্য ও সেবার একমাত্র ডিজিটাল পোর্টাল।</p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-base font-bold text-slate-800">
+          <nav aria-label="ফুটার নেভিগেশন" className="flex flex-wrap justify-center gap-x-12 gap-y-6 text-base font-bold text-slate-800">
             <a href="#home" className="hover:text-emerald-600 transition-colors">মূলপাতা</a>
             <a href="#about" className="hover:text-emerald-600 transition-colors">আমাদের গ্রাম</a>
             <a href="#institutions" className="hover:text-emerald-600 transition-colors">প্রতিষ্ঠান</a>
             <a href="#services" className="hover:text-emerald-600 transition-colors">সেবা সমূহ</a>
             <a href="#contact" className="hover:text-emerald-600 transition-colors">যোগাযোগ</a>
-          </div>
+          </nav>
 
         </div>
         
