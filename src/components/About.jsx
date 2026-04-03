@@ -18,14 +18,17 @@ const About = ({ data }) => {
 
             <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
               <img
-                src="https://ik.imagekit.io/pswee0uqu/hazian/IMG_4148.HEIC"
+                src="https://ik.imagekit.io/pswee0uqu/hazian/IMG_3529.HEIC?tr=w-800,f-auto,q-80"
+                alt="হাজিয়ান গ্রামের প্রাকৃতিক দৃশ্য — মাতামুহুরী নদীর তীরে সবুজ প্রকৃতি, চকরিয়া, কক্সবাজার"
+                loading="lazy"
+                width="800"
+                height="550"
                 className="w-full h-[350px] sm:h-[450px] lg:h-[550px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/40 via-transparent to-transparent" />
             </div>
 
             <div className="absolute top-4 right-4 sm:top-8 sm:right-8 z-20 bg-white/90 backdrop-blur-md p-5 sm:p-6 rounded-[1.5rem] sm:rounded-3xl shadow-xl border border-white/50 max-w-[160px] sm:max-w-[180px] hover:scale-105 transition-transform">
-
               <div className="text-slate-600 text-sm font-bold uppercase tracking-wider">
                 সৌহার্দ্যপূর্ণ গ্রাম
               </div>

@@ -1,15 +1,123 @@
 <!doctype html>
-<html lang="bn">
+<html lang="bn" dir="ltr">
   <head>
+    <!-- ====================================== -->
+    <!-- ১. মৌলিক মেটা ট্যাগসমূহ (Basic Meta Tags) -->
+    <!-- ====================================== -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- ====================================== -->
+    <!-- ২. SEO টাইটেল ও ডেসক্রিপশন -->
+    <!-- ====================================== -->
+    <title>হাজিয়ান গ্রাম — চকরিয়া, কক্সবাজার | ইতিহাস, ঐতিহ্য ও সেবা তথ্য</title>
+    <meta 
+      name="description" 
+      content="কক্সবাজারের চকরিয়া উপজেলার ফাঁসিয়াখালী ইউনিয়নের হাজিয়ান গ্রামের অফিসিয়াল ওয়েবসাইট। গ্রামের ইতিহাস, কৃতি সন্তান, প্রতিষ্ঠান, জনপ্রতিনিধি, নাগরিক সেবা ও জরুরী যোগাযোগের তথ্য পাবেন এখানে।" 
+    />
+    <meta 
+      name="keywords" 
+      content="হাজিয়ান, চকরিয়া, কক্সবাজার, ফাঁসিয়াখালী, হাজিয়ান গ্রাম, মাতামুহুরী, বাংলাদেশ গ্রাম, hazian village, chakaria cox's bazar" 
+    />
+    <meta name="author" content="হাজিয়ান গ্রাম পরিচালনা কমিটি" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- ====================================== -->
+    <!-- ৩. ক্যানোনিক্যাল URL (Canonical URL) -->
+    <!-- ====================================== -->
+    <link rel="canonical" href="https://hazian.ami.bd/" />
+
+    <!-- ====================================== -->
+    <!-- ৪. Open Graph (OG) ট্যাগ — Facebook/WhatsApp শেয়ারিং -->
+    <!-- ====================================== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="হাজিয়ান গ্রাম" />
+    <meta property="og:title" content="হাজিয়ান গ্রাম — চকরিয়া, কক্সবাজার | ঐতিহ্যবাহী গ্রামের ডিজিটাল পোর্টাল" />
+    <meta property="og:description" content="মাতামুহুরী নদীর তীরে অবস্থিত হাজিয়ান গ্রাম — ইতিহাস, প্রতিষ্ঠান, কৃতি সন্তান এবং নাগরিক সেবার সকল তথ্য এক জায়গায়।" />
+    <meta property="og:url" content="https://hazian.ami.bd/" />
+    <meta property="og:image" content="https://ik.imagekit.io/pswee0uqu/hazian/IMG_2394.JPEG?tr=w-1200,h-630,fo-auto" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="হাজিয়ান গ্রামের প্রাকৃতিক দৃশ্য — চকরিয়া, কক্সবাজার" />
+    <meta property="og:locale" content="bn_BD" />
+
+    <!-- ====================================== -->
+    <!-- ৫. Twitter কার্ড ট্যাগ -->
+    <!-- ====================================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="হাজিয়ান গ্রাম — চকরিয়া, কক্সবাজার" />
+    <meta name="twitter:description" content="কক্সবাজারের চকরিয়ায় ফাঁসিয়াখালী ইউনিয়নের ঐতিহ্যবাহী হাজিয়ান গ্রামের অফিসিয়াল ওয়েবসাইট।" />
+    <meta name="twitter:image" content="https://ik.imagekit.io/pswee0uqu/hazian/IMG_2394.JPEG?tr=w-1200,h-630,fo-auto" />
+
+    <!-- ====================================== -->
+    <!-- ৬. Favicon ও অ্যাপ আইকন -->
+    <!-- ====================================== -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#10b981" />
+
+    <!-- ====================================== -->
+    <!-- ৭. ফন্ট প্রিকানেক্ট ও লোডিং -->
+    <!-- ====================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <title>হাজিয়ান গ্রাম - চকরিয়া, কক্সবাজার</title>
+
+    <!-- ====================================== -->
+    <!-- ৮. JSON-LD স্ট্রাকচার্ড ডেটা (Google Rich Results) -->
+    <!-- গুগল সার্চে গ্রামটিকে একটি LocalBusiness/Place হিসেবে -->
+    <!-- চিহ্নিত করতে এই স্কিমা ব্যবহার করা হয়েছে। -->
+    <!-- ====================================== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "হাজিয়ান গ্রাম",
+      "alternateName": "Hazian Village",
+      "url": "https://hazian.ami.bd/",
+      "description": "কক্সবাজারের চকরিয়া উপজেলার ফাঁসিয়াখালী ইউনিয়নের হাজিয়ান গ্রামের অফিসিয়াল ওয়েবসাইট।",
+      "inLanguage": "bn",
+      "publisher": {
+        "@type": "Organization",
+        "name": "হাজিয়ান গ্রাম পরিচালনা কমিটি",
+        "url": "https://hazian.ami.bd/"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Place",
+      "name": "হাজিয়ান গ্রাম",
+      "alternateName": "Hazian Village, Chakaria",
+      "description": "মাতামুহুরী নদীর তীরে অবস্থিত ঐতিহ্যবাহী হাজিয়ান গ্রাম — চকরিয়া উপজেলার ফাঁসিয়াখালী ইউনিয়নের ১ নং ওয়ার্ডের একটি প্রধান জনপদ।",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "চকরিয়া",
+        "addressRegion": "কক্সবাজার",
+        "addressCountry": "BD"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "21.65",
+        "longitude": "92.05"
+      },
+      "image": "https://ik.imagekit.io/pswee0uqu/hazian/IMG_2394.JPEG",
+      "url": "https://hazian.ami.bd/"
+    }
+    </script>
   </head>
   <body>
+    <!-- 
+      noscript ট্যাগ: সার্চ ইঞ্জিনের ক্রলার যদি জাভাস্ক্রিপ্ট না চালায়, 
+      তাহলেও কিছু কনটেন্ট পড়তে পারবে 
+    -->
+    <noscript>
+      <h1>হাজিয়ান গ্রাম — চকরিয়া, কক্সবাজার</h1>
+      <p>কক্সবাজারের চকরিয়া উপজেলার ফাঁসিয়াখালী ইউনিয়নের হাজিয়ান গ্রামের অফিসিয়াল ওয়েবসাইট। দয়া করে জাভাস্ক্রিপ্ট সক্রিয় করুন।</p>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
