@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, Loader2 } from 'lucide-react';
 
 const Gallery = ({ data }) => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleImageSelect = (image) => {
+    setIsLoading(true);
+    setSelectedImage(image);
+  };
 
   return (
     <section id="gallery" className="section-padding bg-white relative">
@@ -27,7 +33,7 @@ const Gallery = ({ data }) => {
               <div 
                 key={item.id} 
                 className="relative group overflow-hidden rounded-[2.5rem] bg-slate-100 shadow-xl hover:shadow-2xl transition-all duration-700 cursor-pointer"
-                onClick={() => setSelectedImage({ title: item.title, url: fullUrl })}
+                onClick={() => handleImageSelect({ title: item.title, url: fullUrl })}
               >
                 <img
                   src={thumbnailUrl}
@@ -54,19 +60,35 @@ const Gallery = ({ data }) => {
       {selectedImage && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-md transition-all duration-300"
-          onClick={() => setSelectedImage(null)}
+          onClick={() => {
+            setSelectedImage(null);
+            setIsLoading(false);
+          }}
         >
           <button 
             className="absolute top-4 right-4 sm:top-8 sm:right-8 w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors z-50"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => {
+              setSelectedImage(null);
+              setIsLoading(false);
+            }}
           >
             <X size={24} />
           </button>
+
+          {isLoading && (
+            <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
+              <Loader2 className="w-12 h-12 text-white animate-spin mb-4" />
+              <p className="text-white/70 font-medium animate-pulse">ছবি লোড হচ্ছে...</p>
+            </div>
+          )}
           
           <img 
             src={selectedImage.url} 
             alt={selectedImage.title} 
-            className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl animate-in zoom-in duration-300"
+            className={`max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl transition-all duration-500 ease-out ${
+              isLoading ? 'opacity-0 scale-95' : 'opacity-100 scale-100 animate-in zoom-in-95'
+            }`}
+            onLoad={() => setIsLoading(false)}
             onClick={(e) => e.stopPropagation()} 
           />
         </div>
@@ -76,3 +98,4 @@ const Gallery = ({ data }) => {
 };
 
 export default Gallery;
+
