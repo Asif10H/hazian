@@ -27,9 +27,12 @@ const Footer = () => {
           <div>
             &copy; {new Date().getFullYear()} হাজিয়ান গ্রাম পরিচালনা কমিটি। সর্বস্বত্ব সংরক্ষিত।
           </div>
-          <div className="flex items-center gap-1.5 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
-            প্রকৃতির প্রতি ভালবাসা নিয়ে তৈরি <Heart size={16} className="text-emerald-500 fill-emerald-500" />
-          </div>
+          <p className="text-xs text-slate-500 flex items-center gap-1">
+            Developed  by{" "}
+            <a href="https://www.facebook.com/Asif10H/" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 transition-colors">
+              Habibullah Asif
+            </a>
+          </p>
         </div>
 
       </div>
