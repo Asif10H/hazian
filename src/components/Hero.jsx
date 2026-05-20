@@ -1,9 +1,27 @@
-import React from "react";
-import { ChevronDown, ArrowRight, PhoneCall, MapPin } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { ChevronDown, ArrowRight, PhoneCall, MapPin, Eye } from "lucide-react";
 import siteData from "../data.json";
 
 const Hero = ({ data }) => {
   const stats = siteData.village.about.stats;
+  const [views, setViews] = useState(null);
+
+  useEffect(() => {
+    const namespace = "hazian-page-views";
+    const key = "views";
+    const url = `https://api.counterapi.dev/v1/${namespace}/${key}/up`;
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        // V1 returns count, V2 returns value
+        const currentViews = data.count !== undefined ? data.count : data.value;
+        if (currentViews !== undefined) {
+          setViews(currentViews);
+        }
+      })
+      .catch((err) => console.error("Error fetching view count:", err));
+  }, []);
 
   return (
     <section
@@ -101,7 +119,7 @@ const Hero = ({ data }) => {
                 stats.map((stat, i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-between border-b border-white/5 pb-4 last:border-0 last:pb-0"
+                    className="flex items-center justify-between border-b border-white/5 pb-4"
                   >
                     <span className="text-slate-400 font-medium">
                       {stat.label}
@@ -111,6 +129,17 @@ const Hero = ({ data }) => {
                     </span>
                   </div>
                 ))}
+              {views !== null && (
+                <div className="flex items-center justify-between pt-2">
+                  <span className="text-slate-400 font-medium flex items-center gap-1.5">
+                    <Eye className="w-4 h-4 text-emerald-400" />
+                    মোট ভিজিটর
+                  </span>
+                  <span className="text-emerald-400 font-bold text-lg bg-emerald-500/10 px-3 py-1 rounded-lg border border-emerald-500/20">
+                    {views.toLocaleString()}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
 
