@@ -26,7 +26,7 @@ const Hero = ({ data }) => {
   return (
     <section
       id="home"
-      className="relative h-screen min-h-[700px] w-full flex flex-col justify-center overflow-hidden bg-slate-950"
+      className="relative min-h-screen lg:h-screen w-full flex flex-col justify-center overflow-hidden bg-slate-950 pt-24 pb-16 lg:py-0"
     >
       {/* Background Image with Slow Pan Overlay */}
       <div
@@ -58,16 +58,16 @@ const Hero = ({ data }) => {
       <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-600/20 blur-[120px] pointer-events-none z-0" />
 
       {/* Main Content Grid */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mt-12 md:mt-24">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mt-6 lg:mt-0">
         {/* Left Column - Text & CTA */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left">
+        <div className="lg:col-span-7 flex flex-col items-start text-left w-full">
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 shadow-2xl animate-fade-in">
             <span className="text-emerald-300 font-semibold tracking-wider text-sm uppercase">
               ঐতিহ্য ও আধুনিকতার মেলবন্ধন
             </span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white mb-8 leading-[1.1] animate-fade-in delay-100">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white mb-8 leading-[1.1] animate-fade-in delay-100">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
               {data.title.split(" ")[0]}
             </span>
@@ -106,8 +106,8 @@ const Hero = ({ data }) => {
         </div>
 
         {/* Right Column - Premium Glass Cards */}
-        <div className="hidden lg:flex lg:col-span-5 relative h-[500px] items-center justify-center animate-fade-in delay-500">
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-80 bg-slate-900/40 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform duration-700 z-20">
+        <div className="flex lg:col-span-5 relative h-[380px] sm:h-[450px] lg:h-[500px] items-center justify-center animate-fade-in delay-500 w-full mt-8 lg:mt-0">
+          <div className="relative lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 w-full max-w-[290px] min-[375px]:max-w-[320px] sm:w-80 bg-slate-900/40 backdrop-blur-2xl border border-white/10 p-6 sm:p-8 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform duration-700 z-20">
             <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/30">
               <MapPin className="text-white" size={32} />
             </div>
@@ -144,7 +144,7 @@ const Hero = ({ data }) => {
           </div>
 
           {/* Floating Accent Card Behind */}
-          <div className="absolute right-20 top-[15%] w-64 h-64 bg-gradient-to-br from-emerald-600 to-teal-800 rounded-[3rem] rotate-12 opacity-80 blur-[2px] z-10 animate-pulse-soft mix-blend-screen shadow-[0_0_50px_rgba(16,185,129,0.5)]"></div>
+          <div className="absolute right-[10%] sm:right-20 top-[15%] w-48 h-48 sm:w-64 sm:h-64 bg-gradient-to-br from-emerald-600 to-teal-800 rounded-[3rem] rotate-12 opacity-80 blur-[2px] z-10 animate-pulse-soft mix-blend-screen shadow-[0_0_50px_rgba(16,185,129,0.5)]"></div>
         </div>
       </div>
 
