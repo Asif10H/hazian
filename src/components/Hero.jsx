@@ -81,7 +81,7 @@ const Hero = ({ data }) => {
             {data.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto animate-fade-in delay-300">
+          <div className="flex flex-col sm:flex-row gap-5 w-full max-w-md sm:max-w-none sm:w-auto animate-fade-in delay-300">
             <a
               href="#about"
               className="group px-8 py-5 font-bold text-lg text-slate-900 bg-emerald-400 rounded-2xl hover:bg-emerald-300 hover:shadow-[0_0_40px_rgba(52,211,153,0.4)] transition-all duration-500 hover:-translate-y-1 flex items-center justify-center gap-3"
@@ -107,7 +107,7 @@ const Hero = ({ data }) => {
 
         {/* Right Column - Premium Glass Cards */}
         <div className="flex lg:col-span-5 relative h-[380px] sm:h-[450px] lg:h-[500px] items-center justify-center animate-fade-in delay-500 w-full mt-8 lg:mt-0">
-          <div className="relative lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 w-full max-w-[290px] min-[375px]:max-w-[320px] sm:w-80 bg-slate-900/40 backdrop-blur-2xl border border-white/10 p-6 sm:p-8 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform duration-700 z-20">
+          <div className="relative lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 w-full max-w-md lg:w-80 bg-slate-900/40 backdrop-blur-2xl border border-white/10 p-6 sm:p-8 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform duration-700 z-20">
             <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/30">
               <MapPin className="text-white" size={32} />
             </div>
