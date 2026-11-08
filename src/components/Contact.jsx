@@ -6,48 +6,48 @@ const Contact = ({ data }) => {
     <section id="contact" className="section-padding bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch">
           
-          <div className="w-full lg:w-4/12 bg-emerald-600 p-12 rounded-[3.5rem] shadow-2xl flex flex-col justify-center relative overflow-hidden group">
+          <div className="w-full lg:w-4/12 bg-emerald-600 p-8 sm:p-10 rounded-2xl sm:rounded-3xl shadow-xl flex flex-col justify-center relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[80px] -mr-32 -mt-32 group-hover:scale-150 transition-transform duration-1000" />
             
-            <h2 className="text-5xl font-black text-white mb-6 relative z-10 tracking-tight">যোগাযোগ</h2>
-            <p className="text-xl text-emerald-50 font-bold mb-12 relative z-10 opacity-90">হাজিয়ান গ্রামের যেকোনো তথ্য বা সেবার জন্য আমাদের সাথে কথা বলুন।</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-3 relative z-10 tracking-tight">যোগাযোগ</h2>
+            <p className="text-base sm:text-lg text-emerald-50 font-medium mb-8 relative z-10 opacity-90">হাজিয়ান গ্রামের যেকোনো তথ্য বা সেবার জন্য আমাদের সাথে কথা বলুন।</p>
 
-            <div className="space-y-10 relative z-10">
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 shrink-0 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md">
-                  <MapPin size={24} />
+            <div className="space-y-6 relative z-10">
+              <div className="flex items-center gap-4 sm:gap-5">
+                <div className="w-12 h-12 shrink-0 bg-white/20 rounded-xl flex items-center justify-center text-white shadow-md backdrop-blur-md">
+                  <MapPin size={22} />
                 </div>
                 <div>
-                  <h4 className="text-emerald-100 text-sm font-black uppercase tracking-widest mb-1">অবস্থান</h4>
-                  <p className="text-white font-black text-xl leading-snug">{data.address}</p>
+                  <h4 className="text-emerald-100 text-xs font-bold uppercase tracking-wider mb-0.5">অবস্থান</h4>
+                  <p className="text-white font-bold text-base sm:text-lg leading-snug">{data.address}</p>
                 </div>
               </div>
 
-              <div className="flex items-center gap-6 group/item cursor-pointer">
-                <div className="w-14 h-14 shrink-0 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
-                  <Mail size={24} />
+              <div className="flex items-center gap-4 sm:gap-5 group/item cursor-pointer">
+                <div className="w-12 h-12 shrink-0 bg-white/20 rounded-xl flex items-center justify-center text-white shadow-md backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
+                  <Mail size={22} />
                 </div>
                 <div>
-                  <h4 className="text-emerald-100 text-sm font-black uppercase tracking-widest mb-1">ইমেইল</h4>
-                  <a href={`mailto:${data.email}`} className="text-white font-black text-xl hover:text-emerald-900 transition-colors">{data.email}</a>
+                  <h4 className="text-emerald-100 text-xs font-bold uppercase tracking-wider mb-0.5">ইমেইল</h4>
+                  <a href={`mailto:${data.email}`} className="text-white font-bold text-base sm:text-lg hover:text-emerald-100 transition-colors">{data.email}</a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-6 group/item cursor-pointer">
-                <div className="w-14 h-14 shrink-0 bg-white/20 rounded-2xl flex items-center justify-center text-white shadow-lg backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
-                  <Phone size={24} />
+              <div className="flex items-center gap-4 sm:gap-5 group/item cursor-pointer">
+                <div className="w-12 h-12 shrink-0 bg-white/20 rounded-xl flex items-center justify-center text-white shadow-md backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
+                  <Phone size={22} />
                 </div>
                 <div>
-                  <h4 className="text-emerald-100 text-sm font-black uppercase tracking-widest mb-1">ফোন</h4>
-                  <a href={`tel:${data.phone}`} className="text-white font-black text-xl hover:text-emerald-900 transition-colors uppercase">{data.phone}</a>
+                  <h4 className="text-emerald-100 text-xs font-bold uppercase tracking-wider mb-0.5">ফোন</h4>
+                  <a href={`tel:${data.phone}`} className="text-white font-bold text-base sm:text-lg hover:text-emerald-100 transition-colors uppercase">{data.phone}</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="w-full lg:w-8/12 bg-slate-50 border border-slate-100 rounded-[3.5rem] shadow-xl relative overflow-hidden min-h-[500px] group">
+          <div className="w-full lg:w-8/12 bg-slate-50 border border-slate-100 rounded-2xl sm:rounded-3xl shadow-xl relative overflow-hidden min-h-[420px] lg:min-h-[460px] group">
             <iframe 
                src="https://maps.google.com/maps?q=Q34R%2BGQ9,+Kakara&t=m&z=15&output=embed&iwloc=near"
                title="Hazian Map"

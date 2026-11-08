@@ -63,7 +63,7 @@
 
   /* Custom Section Spacing */
   .section-padding {
-    @apply py-24 md:py-32;
+    @apply py-14 md:py-20;
   }
 }
 
