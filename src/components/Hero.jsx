@@ -84,7 +84,8 @@ const Hero = ({ data }) => {
             {data.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto">
+          {/* Action Buttons (Desktop view: sits under subtitle) */}
+          <div className="hidden lg:flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto">
             <a
               href="#about"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-colors shadow-sm"
@@ -103,8 +104,8 @@ const Hero = ({ data }) => {
           </div>
         </div>
 
-        {/* Right Column: Verified Civic Profile Card */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
+        {/* Right Column: Verified Civic Profile Card & Mobile Action Buttons */}
+        <div className="lg:col-span-5 flex flex-col items-center lg:items-end w-full">
           <div className="w-full max-w-md bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-2xl backdrop-blur-md">
             
             {/* Card Header */}
@@ -165,6 +166,25 @@ const Hero = ({ data }) => {
             <p className="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-500 text-center">
               হাজিয়ান গ্রাম পরিচালনা কমিটি কর্তৃক পরিচালিত ডিজিটাল তথ্য সেবা
             </p>
+          </div>
+
+          {/* Action Buttons (Mobile view: sits directly below the card as requested) */}
+          <div className="lg:hidden flex flex-col sm:flex-row gap-3.5 w-full max-w-md mt-6">
+            <a
+              href="#about"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-colors shadow-sm w-full"
+            >
+              গ্রামের বিবরণ দেখুন
+              <ArrowRight size={18} />
+            </a>
+            
+            <a
+              href="#emergency"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-white bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-600 transition-colors w-full"
+            >
+              <PhoneCall size={18} className="text-emerald-400" />
+              জরুরী সেবা নম্বর
+            </a>
           </div>
         </div>
 
