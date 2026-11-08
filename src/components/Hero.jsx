@@ -164,7 +164,7 @@ const Hero = ({ data }) => {
 
             {/* Card Footer Note */}
             <p className="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-500 text-center">
-              হাজিয়ান গ্রাম পরিচালনা কমিটি কর্তৃক পরিচালিত ডিজিটাল তথ্য সেবা
+              হাজিয়ান গ্রামের সর্বস্তরের সাধারণ জনগণের জন্য উন্মুক্ত ডিজিটাল তথ্য সেবা
             </p>
           </div>
 

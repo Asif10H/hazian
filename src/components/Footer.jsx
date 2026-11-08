@@ -37,7 +37,7 @@ const Footer = () => {
         
         <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-2.5 text-xs text-slate-500">
           <div>
-            &copy; {new Date().getFullYear()} হাজিয়ান গ্রাম পরিচালনা কমিটি। সর্বস্বত্ব সংরক্ষিত।
+            &copy; {new Date().getFullYear()} হাজিয়ান গ্রামের সর্বস্তরের সাধারণ জনগণ। সর্বস্বত্ব সংরক্ষিত।
           </div>
           <p className="flex items-center gap-1">
             কারিগরি সহায়তায়{" "}
