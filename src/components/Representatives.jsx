@@ -41,13 +41,20 @@ const Representatives = ({ data }) => {
                 </span>
               </div>
 
-              <a
-                href={`tel:${rep.phone}`}
-                className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-xs sm:text-sm font-semibold hover:bg-emerald-700 active:scale-[0.98] transition-all w-full"
-              >
-                <Phone size={14} />
-                {rep.phone}
-              </a>
+              {rep.phone && !rep.phone.includes("আপডেট") && !rep.phone.includes("000000") ? (
+                <a
+                  href={`tel:${rep.phone}`}
+                  className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-xs sm:text-sm font-semibold hover:bg-emerald-700 active:scale-[0.98] transition-all w-full"
+                >
+                  <Phone size={14} />
+                  {rep.phone}
+                </a>
+              ) : (
+                <div className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-100 text-slate-500 text-xs sm:text-sm font-semibold w-full border border-slate-200">
+                  <Phone size={14} className="text-slate-400" />
+                  {rep.phone}
+                </div>
+              )}
             </div>
           ))}
         </div>
