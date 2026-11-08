@@ -1,12 +1,13 @@
 import React from 'react';
 import VillageLogo from './VillageLogo';
+import CommunityShare from './CommunityShare';
 
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-slate-200/80 py-10 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left mb-6">
           <div className="flex flex-col items-center md:items-start max-w-sm">
             <div className="flex items-center gap-2.5 mb-1.5 group">
               <VillageLogo className="w-8 h-8 rounded-lg p-1.5" />
@@ -34,6 +35,9 @@ const Footer = () => {
             <a href="#contact" className="hover:text-emerald-700 transition-colors">যোগাযোগ</a>
           </nav>
         </div>
+
+        {/* Community One-Tap Share Bar */}
+        <CommunityShare />
         
         <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-2.5 text-xs text-slate-500">
           <div>
