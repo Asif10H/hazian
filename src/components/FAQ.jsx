@@ -81,3 +81,4 @@ const FAQ = ({ data }) => {
 };
 
 export default FAQ;
+

@@ -93,11 +93,10 @@ const Institutions = ({ data }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filteredItems.map((item, index) => {
             const Icon = iconMap[item.type] || Landmark;
-            const delayClass = `reveal-delay-${(index % 3) + 1}`;
             return (
               <div
                 key={`${item.name}-${index}`}
-                className={`p-5 sm:p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-emerald-300 transition-colors shadow-xs flex flex-col card-hover-lift group reveal ${delayClass}`}
+                className="p-5 sm:p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-emerald-300 transition-all duration-200 shadow-xs flex flex-col card-hover-lift group"
               >
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">

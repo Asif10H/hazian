@@ -27,13 +27,22 @@ export function useScrollReveal() {
     // Initial check and observation
     observeElements();
 
-    // Re-check shortly after mount in case of late renders
     const timer = setTimeout(observeElements, 100);
+
+    let mutationObserver = null;
+    if ("MutationObserver" in window) {
+      mutationObserver = new MutationObserver(() => {
+        observeElements();
+      });
+      mutationObserver.observe(document.body, { childList: true, subtree: true });
+    }
 
     return () => {
       clearTimeout(timer);
       observer.disconnect();
+      if (mutationObserver) {
+        mutationObserver.disconnect();
+      }
     };
   }, []);
 }
-
