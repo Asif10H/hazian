@@ -7,7 +7,7 @@ const CitizenServices = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-10 md:mb-12 reveal">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Briefcase size={14} />
             নাগরিক সেবা সনদ
@@ -24,7 +24,7 @@ const CitizenServices = ({ data }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           
           {/* Left Guidance Panel */}
-          <div className="lg:col-span-4 bg-slate-900 text-white p-6 sm:p-7 rounded-xl border border-slate-800 shadow-xs flex flex-col justify-between">
+          <div className="lg:col-span-4 bg-slate-900 text-white p-6 sm:p-7 rounded-xl border border-slate-800 shadow-xs flex flex-col justify-between card-hover-lift reveal">
             <div>
               <div className="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center mb-4">
                 <Briefcase size={20} />
@@ -55,7 +55,7 @@ const CitizenServices = ({ data }) => {
             {data.items.map((service, index) => (
               <div
                 key={index}
-                className="p-5 rounded-xl bg-white border border-slate-200/80 shadow-xs hover:border-slate-300 transition-colors flex flex-col justify-between"
+                className={`p-5 rounded-xl bg-white border border-slate-200/80 shadow-xs hover:border-emerald-300 transition-colors flex flex-col justify-between card-hover-lift reveal reveal-delay-${(index % 2) + 1}`}
               >
                 <div>
                   <div className="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center mb-3 border border-emerald-100">

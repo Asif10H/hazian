@@ -33,7 +33,7 @@ const Notables = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-10 md:mb-12 reveal">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles size={14} />
             গর্বিত হাজিয়ান
@@ -50,11 +50,12 @@ const Notables = ({ data }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data.list.map((person, index) => {
             const Icon = iconMap[person.category] || Sparkles;
+            const delayClass = `reveal-delay-${(index % 3) + 1}`;
 
             return (
               <div
                 key={index}
-                className="bg-white rounded-xl border border-slate-200/80 shadow-xs hover:border-slate-300 transition-colors p-5 flex flex-col"
+                className={`bg-white rounded-xl border border-slate-200/80 shadow-xs hover:border-emerald-300 transition-colors p-5 flex flex-col card-hover-lift reveal ${delayClass}`}
               >
                 {/* Person Header */}
                 <div className="flex items-start gap-3.5 mb-3.5">

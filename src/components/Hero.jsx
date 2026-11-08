@@ -104,28 +104,23 @@ const Hero = ({ data }) => {
         
         {/* Left Column: Heading & Information */}
         <div className="lg:col-span-7 flex flex-col items-start text-left">
-          
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-white/20 text-emerald-400 text-xs sm:text-sm font-semibold mb-6 shadow-sm backdrop-blur-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            ঐতিহ্যবাহী জনপদ • ফাঁসিয়াখালী ইউনিয়ন
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-5 tracking-tight leading-[1.15] drop-shadow-md">
+           
+          <h1 className="animate-hero-title text-3xl sm:text-5xl md:text-6xl font-black text-white mb-5 tracking-tight leading-[1.15] drop-shadow-md">
             {data.title.split(" ")[0]}{" "}
             <span className="text-emerald-400 drop-shadow-[0_2px_12px_rgba(16,185,129,0.4)]">
               {data.title.split(" ").slice(1).join(" ")}
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-100 mb-8 max-w-2xl leading-relaxed font-normal drop-shadow-sm">
+          <p className="animate-hero-subtitle text-base sm:text-lg text-slate-100 mb-8 max-w-2xl leading-relaxed font-normal drop-shadow-sm">
             {data.subtitle}
           </p>
 
           {/* Action Buttons (Desktop view: sits under subtitle) */}
-          <div className="hidden lg:flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto">
+          <div className="animate-hero-cta hidden lg:flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto">
             <a
               href="#about"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-colors shadow-sm"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-emerald-400 hover:bg-emerald-300 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
             >
               গ্রামের বিবরণ দেখুন
               <ArrowRight size={18} />
@@ -133,7 +128,7 @@ const Hero = ({ data }) => {
             
             <a
               href="#emergency"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-white bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-600 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-white bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-600 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               <PhoneCall size={18} className="text-emerald-400" />
               জরুরী সেবা নম্বর
@@ -143,7 +138,7 @@ const Hero = ({ data }) => {
 
         {/* Right Column: Verified Civic Profile Card & Mobile Action Buttons */}
         <div className="lg:col-span-5 flex flex-col items-center lg:items-end w-full">
-          <div className="w-full max-w-md bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-2xl backdrop-blur-md">
+          <div className="animate-hero-card w-full max-w-md bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-2xl backdrop-blur-md">
             
             {/* Card Header */}
             <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
@@ -209,10 +204,10 @@ const Hero = ({ data }) => {
           </div>
 
           {/* Action Buttons (Mobile view: sits directly below the card as requested) */}
-          <div className="lg:hidden flex flex-col sm:flex-row gap-3.5 w-full max-w-md mt-6">
+          <div className="animate-hero-cta lg:hidden flex flex-col sm:flex-row gap-3.5 w-full max-w-md mt-6">
             <a
               href="#about"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-colors shadow-sm w-full"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-emerald-400 hover:bg-emerald-300 active:scale-[0.98] transition-all shadow-sm w-full"
             >
               গ্রামের বিবরণ দেখুন
               <ArrowRight size={18} />
@@ -220,7 +215,7 @@ const Hero = ({ data }) => {
             
             <a
               href="#emergency"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-white bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-600 transition-colors w-full"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-white bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-600 active:scale-[0.98] transition-all w-full"
             >
               <PhoneCall size={18} className="text-emerald-400" />
               জরুরী সেবা নম্বর

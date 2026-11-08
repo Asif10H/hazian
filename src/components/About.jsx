@@ -11,8 +11,8 @@ const About = ({ data }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Image with Clean Framing & Skeleton Shimmer */}
-          <div className="lg:col-span-5 relative">
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative min-h-[300px] sm:min-h-[400px]">
+          <div className="lg:col-span-5 relative reveal">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative min-h-[300px] sm:min-h-[400px] group">
               {!isImageLoaded && (
                 <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400">
                   <ImageIcon size={36} className="opacity-35" />
@@ -26,7 +26,7 @@ const About = ({ data }) => {
                 width="800"
                 height="550"
                 onLoad={() => setIsImageLoaded(true)}
-                className={`w-full h-[320px] sm:h-[420px] object-cover transition-opacity duration-500 ${
+                className={`w-full h-[320px] sm:h-[420px] object-cover group-hover:scale-105 transition-all duration-700 ease-out ${
                   isImageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
               />
@@ -34,14 +34,14 @@ const About = ({ data }) => {
             
             <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm border border-slate-200/80 p-3.5 rounded-xl shadow-xs">
               <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 মাতামুহুরী নদী তীরবর্তী সবুজ ও উর্বর জনপদ
               </div>
             </div>
           </div>
 
           {/* Right Column: Narrative & Stats */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 reveal reveal-delay-1">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4">
               <Landmark size={14} />
               {data.title}
@@ -63,7 +63,7 @@ const About = ({ data }) => {
                 return (
                   <div
                     key={index}
-                    className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5"
+                    className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5 card-hover-lift hover:bg-white hover:border-emerald-200 transition-colors"
                   >
                     <div className="w-10 h-10 rounded-lg bg-emerald-100/80 text-emerald-700 flex items-center justify-center shrink-0">
                       <Icon size={20} />
@@ -84,7 +84,7 @@ const About = ({ data }) => {
             <div>
               <a
                 href="#history"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 transition-colors shadow-xs"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xs"
               >
                 গ্রামের পূর্ণাঙ্গ ইতিহাস পড়ুন
                 <ChevronDown size={16} />

@@ -29,7 +29,7 @@ const History = ({ data }) => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-10 md:mb-12 reveal">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <HistoryIcon size={14} />
             {data.title}
@@ -39,7 +39,7 @@ const History = ({ data }) => {
           </h2>
 
           {/* Intro Card */}
-          <div className="p-5 sm:p-7 rounded-xl bg-white border border-slate-200/80 shadow-xs mb-6 text-left sm:text-center">
+          <div className="p-5 sm:p-7 rounded-xl bg-white border border-slate-200/80 shadow-xs mb-6 text-left sm:text-center reveal reveal-delay-1">
             <Quote size={24} className="text-emerald-600 mb-2 sm:mx-auto" />
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
               {data.intro}
@@ -51,7 +51,7 @@ const History = ({ data }) => {
             {data.achievements.map((achievement, index) => (
               <div
                 key={index}
-                className="p-4 rounded-xl bg-white border border-slate-200/80 flex items-start gap-3 text-left shadow-xs"
+                className={`p-4 rounded-xl bg-white border border-slate-200/80 flex items-start gap-3 text-left shadow-xs card-hover-lift reveal reveal-delay-${index + 1}`}
               >
                 <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
                   <Award size={16} />
@@ -74,7 +74,7 @@ const History = ({ data }) => {
               const IconComponent = iconMap[section.icon] || Star;
 
               return (
-                <div key={index} className="relative">
+                <div key={index} className="relative reveal">
                   <div className="flex gap-4 md:gap-6 items-start">
                     
                     {/* Serial Number Node (Desktop) */}
@@ -83,7 +83,7 @@ const History = ({ data }) => {
                     </div>
 
                     {/* Content Card */}
-                    <div className="flex-1 p-5 sm:p-6 rounded-xl bg-white border border-slate-200/80 shadow-xs hover:border-slate-300 transition-colors">
+                    <div className="flex-1 p-5 sm:p-6 rounded-xl bg-white border border-slate-200/80 shadow-xs card-hover-lift hover:border-slate-300 transition-all">
                       
                       {/* Mobile Serial Badge */}
                       <div className="md:hidden inline-flex items-center gap-1 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md mb-2">
@@ -168,7 +168,7 @@ const History = ({ data }) => {
 
         {/* Conclusion Banner */}
         {data.conclusion && (
-          <div className="mt-8 p-5 sm:p-6 rounded-xl bg-slate-900 text-white text-center shadow-xs">
+          <div className="mt-8 p-5 sm:p-6 rounded-xl bg-slate-900 text-white text-center shadow-xs reveal">
             <h3 className="text-base font-bold text-emerald-400 mb-1.5">সারসংক্ষেপ</h3>
             <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-normal max-w-3xl mx-auto">
               {data.conclusion}

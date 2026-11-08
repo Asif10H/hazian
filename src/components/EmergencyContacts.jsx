@@ -15,7 +15,7 @@ const EmergencyContacts = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-10 md:mb-12 reveal">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold uppercase tracking-wider mb-3">
             <AlertTriangle size={14} />
             তাৎক্ষণিক জরুরি সেবা
@@ -38,10 +38,10 @@ const EmergencyContacts = ({ data }) => {
               <a 
                 key={index} 
                 href={`tel:${contact.phone}`}
-                className={`p-5 rounded-xl border flex flex-col items-center text-center transition-all ${
+                className={`p-5 rounded-xl border flex flex-col items-center text-center transition-all card-hover-lift active:scale-[0.98] reveal reveal-delay-${index + 1} ${
                   isNationalHelpline 
-                    ? "bg-red-950/40 border-red-500/40 hover:bg-red-900/40 hover:border-red-400" 
-                    : "bg-slate-800/60 border-slate-700/80 hover:bg-slate-800 hover:border-slate-600"
+                    ? "bg-red-950/40 border-red-500/40 hover:bg-red-900/40 hover:border-red-400 shadow-sm" 
+                    : "bg-slate-800/60 border-slate-700/80 hover:bg-slate-800 hover:border-slate-600 shadow-sm"
                 }`}
               >
                 <div className={`w-11 h-11 rounded-lg flex items-center justify-center mb-3 ${

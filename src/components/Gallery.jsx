@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { X, Loader2, Image as ImageIcon } from 'lucide-react';
 
-const GalleryCard = ({ item, onSelect }) => {
+const GalleryCard = ({ item, index = 0, onSelect }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const thumbnailUrl = item.url.includes('?') 
@@ -12,9 +12,11 @@ const GalleryCard = ({ item, onSelect }) => {
     ? `${item.url}&tr=f-auto`
     : `${item.url}?tr=f-auto`;
 
+  const delayClass = `reveal-delay-${(index % 3) + 1}`;
+
   return (
     <div 
-      className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xs cursor-pointer flex flex-col hover:border-slate-300 hover:shadow-sm transition-all"
+      className={`group relative overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xs cursor-pointer flex flex-col hover:border-slate-300 card-hover-lift reveal ${delayClass}`}
       onClick={() => onSelect({ title: item.title, url: fullUrl })}
     >
       <div className="aspect-[4/3] w-full overflow-hidden relative bg-slate-100">
@@ -62,7 +64,7 @@ const Gallery = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-10 md:mb-12 reveal">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <ImageIcon size={14} />
             আলোকচিত্র সংকলন
@@ -77,10 +79,11 @@ const Gallery = ({ data }) => {
 
         {/* Photo Grid with Skeleton Shimmer */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {data.map((item) => (
+          {data.map((item, index) => (
             <GalleryCard 
               key={item.id} 
               item={item} 
+              index={index}
               onSelect={handleImageSelect} 
             />
           ))}

@@ -7,7 +7,7 @@ const Representatives = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-10 md:mb-12 reveal">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Users size={14} />
             জনপ্রতিনিধিত্ব
@@ -25,7 +25,7 @@ const Representatives = ({ data }) => {
           {data.list.map((rep, index) => (
             <div
               key={index}
-              className="p-5 sm:p-6 bg-white border border-slate-200/80 rounded-xl shadow-xs text-center flex flex-col items-center hover:border-slate-300 transition-colors"
+              className={`p-5 sm:p-6 bg-white border border-slate-200/80 rounded-xl shadow-xs text-center flex flex-col items-center card-hover-lift hover:border-emerald-300 transition-colors reveal reveal-delay-${index + 1}`}
             >
               <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-3.5 border-2 border-emerald-500/20 text-slate-600">
                 <User size={30} strokeWidth={1.5} />
@@ -43,7 +43,7 @@ const Representatives = ({ data }) => {
 
               <a
                 href={`tel:${rep.phone}`}
-                className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-xs sm:text-sm font-semibold hover:bg-emerald-700 transition-colors w-full"
+                className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-xs sm:text-sm font-semibold hover:bg-emerald-700 active:scale-[0.98] transition-all w-full"
               >
                 <Phone size={14} />
                 {rep.phone}

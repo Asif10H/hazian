@@ -18,7 +18,7 @@ const Institutions = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-10 md:mb-12 reveal">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <Building size={14} />
             সামাজিক ও ধর্মীয় প্রতিষ্ঠান
@@ -35,16 +35,17 @@ const Institutions = ({ data }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data.items.map((item, index) => {
             const Icon = iconMap[item.type] || Landmark;
+            const delayClass = `reveal-delay-${(index % 3) + 1}`;
             return (
               <div
                 key={index}
-                className="p-5 sm:p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-slate-300 transition-colors shadow-xs flex flex-col"
+                className={`p-5 sm:p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-emerald-300 transition-colors shadow-xs flex flex-col card-hover-lift group reveal ${delayClass}`}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     <Icon size={20} />
                   </div>
-                  <span className="px-2.5 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-slate-200">
+                  <span className="px-2.5 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-slate-200 group-hover:border-emerald-200 transition-colors">
                     {item.type}
                   </span>
                 </div>

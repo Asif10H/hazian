@@ -119,7 +119,7 @@ const Navbar = ({ data }) => {
             <a 
               href="#contact" 
               onClick={() => setActiveSection('#contact')}
-              className={`hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all shadow-xs ${
+              className={`hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all hover:scale-[1.02] active:scale-[0.98] shadow-xs ${
                 activeSection === '#contact'
                   ? 'bg-emerald-700 text-white ring-2 ring-emerald-500/40'
                   : 'bg-emerald-600 text-white hover:bg-emerald-700'

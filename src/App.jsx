@@ -14,9 +14,11 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import siteData from "./data.json";
+import { useScrollReveal } from "./hooks/useScrollReveal";
 
 function App() {
   const { village } = siteData;
+  useScrollReveal();
 
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-emerald-500 selection:text-white">

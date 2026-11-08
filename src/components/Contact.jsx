@@ -7,7 +7,7 @@ const Contact = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
+        <div className="text-center mb-10 md:mb-12 reveal">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
             <MapPin size={14} />
             সরাসরি যোগাযোগ ও অবস্থান
@@ -24,7 +24,7 @@ const Contact = ({ data }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
           {/* Contact Details Card */}
-          <div className="lg:col-span-5 bg-slate-900 text-white p-6 sm:p-7 rounded-xl border border-slate-800 shadow-xs flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-slate-900 text-white p-6 sm:p-7 rounded-xl border border-slate-800 shadow-xs flex flex-col justify-between card-hover-lift reveal">
             <div>
               <h3 className="text-xl font-bold text-white mb-2">
                 গ্রাম তথ্য ও যোগাযোগ কেন্দ্র
@@ -90,7 +90,7 @@ const Contact = ({ data }) => {
           </div>
 
           {/* Interactive Google Maps Frame */}
-          <div className="lg:col-span-7 bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-xs relative min-h-[360px] sm:min-h-[420px]">
+          <div className="lg:col-span-7 bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-xs relative min-h-[360px] sm:min-h-[420px] reveal reveal-delay-2 card-hover-lift">
             <iframe 
               src="https://maps.google.com/maps?q=Q34R%2BGQ9,+Kakara&t=m&z=15&output=embed&iwloc=near"
               title="Hazian Map"
