@@ -43,21 +43,19 @@ const Hero = ({ data }) => {
   }, [data.imageUrl]);
 
   useEffect(() => {
-    // Background sync with free global counter if available
-    const namespace = "hazian-page-views-7423";
-    const key = "views";
-    const url = `https://api.counterapi.dev/v1/${namespace}/${key}/up`;
+    // Live global counter (working active endpoint without registration)
+    const key = "hazian_village_7423";
+    const url = `https://countapi.mileshilliard.com/api/v1/hit/${key}`;
 
     fetch(url)
       .then((res) => res.json())
       .then((resData) => {
-        const count = resData.count !== undefined ? resData.count : resData.value;
-        if (typeof count === "number" && count > 0) {
-          setViews((prev) => Math.max(prev, 7423 + count));
+        if (typeof resData?.value === "number") {
+          setViews(7423 + resData.value);
         }
       })
       .catch(() => {
-        // Silently preserve count
+        // Silently preserve local count if network fails or offline
       });
   }, []);
 
