@@ -14,7 +14,7 @@ const About = ({ data }) => {
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
               <img
                 src="https://ik.imagekit.io/pswee0uqu/hazian/IMG_3529.HEIC?tr=w-800,f-auto,q-80"
-                alt="হাজিয়ান গ্রামের প্রাকৃতিক দৃশ্য — মাতামুহুরী নদীর তীরে সবুজ প্রকৃতি, চকরিয়া, কক্সবাজার"
+                alt="হাজিয়ান গ্রামের প্রাকৃতিক দৃশ্য - মাতামুহুরী নদীর তীরে সবুজ প্রকৃতি, চকরিয়া, কক্সবাজার"
                 loading="lazy"
                 width="800"
                 height="550"
