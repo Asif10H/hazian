@@ -36,9 +36,9 @@ const Hero = ({ data }) => {
           backgroundPosition: "center",
         }}
       >
-        {/* Dark overlay for optimal text contrast & legibility */}
-        <div className="absolute inset-0 bg-slate-950/75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/50" />
+        {/* Natural & Vibrant Photo Overlays: left side provides text contrast, right side keeps photo bright & visible */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/45 to-slate-950/15" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/30" />
         
         {/* Hidden SEO image */}
         <img
@@ -58,19 +58,19 @@ const Hero = ({ data }) => {
         {/* Left Column: Heading & Information */}
         <div className="lg:col-span-7 flex flex-col items-start text-left">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-semibold mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-white/20 text-emerald-400 text-xs sm:text-sm font-semibold mb-6 shadow-sm backdrop-blur-xs">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             ঐতিহ্যবাহী জনপদ • ফাঁসিয়াখালী ইউনিয়ন
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-5 tracking-tight leading-[1.15]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-5 tracking-tight leading-[1.15] drop-shadow-md">
             {data.title.split(" ")[0]}{" "}
-            <span className="text-emerald-400">
+            <span className="text-emerald-400 drop-shadow-[0_2px_12px_rgba(16,185,129,0.4)]">
               {data.title.split(" ").slice(1).join(" ")}
             </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-slate-100 mb-8 max-w-2xl leading-relaxed font-normal drop-shadow-sm">
             {data.subtitle}
           </p>
 
