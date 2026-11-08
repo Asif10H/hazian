@@ -50,7 +50,7 @@ const GalleryCard = ({ item, index = 0, onSelect }) => {
             স্থিরচিত্র {toBengaliNumber(index + 1)}
           </span>
           <span className="text-[11px] font-medium text-slate-300 backdrop-blur-xs px-2 py-0.5 rounded bg-black/30">
-            চকরিয়া
+            হাজিয়ান
           </span>
         </div>
       </div>
@@ -191,7 +191,7 @@ const Gallery = ({ data }) => {
               <span className="text-white/40">•</span>
               <span className="text-white/80">মোট {toBengaliNumber(data.length)}টি ছবি</span>
               <span className="text-white/40">•</span>
-              <span className="text-slate-300 text-xs">চকরিয়া, কক্সবাজার</span>
+              <span className="text-slate-300 text-xs">হাজিয়ান, চকরিয়া</span>
             </div>
           </div>
         </div>
