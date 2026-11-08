@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { ArrowRight, PhoneCall, Eye, ShieldCheck } from "lucide-react";
 import siteData from "../data.json";
 import VillageLogo from "./VillageLogo";
-import CommunityShare from "./CommunityShare";
 
 // Helper to convert English digits to Bengali digits
 const toBengaliNumber = (num) => {
@@ -110,7 +109,7 @@ const Hero = ({ data }) => {
           </p>
 
           {/* Action Buttons (Desktop view: sits under subtitle) */}
-          <div className="animate-hero-cta hidden lg:flex flex-wrap items-center gap-3.5 w-full sm:w-auto">
+          <div className="animate-hero-cta hidden lg:flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto">
             <a
               href="#about"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-emerald-400 hover:bg-emerald-300 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-sm"
@@ -126,8 +125,6 @@ const Hero = ({ data }) => {
               <PhoneCall size={18} className="text-emerald-400" />
               জরুরী সেবা নম্বর
             </a>
-
-            <CommunityShare variant="button" />
           </div>
         </div>
 
@@ -213,10 +210,6 @@ const Hero = ({ data }) => {
               <PhoneCall size={18} className="text-emerald-400" />
               জরুরী সেবা নম্বর
             </a>
-
-            <div className="w-full flex justify-center pt-1">
-              <CommunityShare variant="button" />
-            </div>
           </div>
         </div>
 

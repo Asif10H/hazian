@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Share2, Check, Copy, ExternalLink, Globe } from 'lucide-react';
+import { Share2, Check, Copy, Globe } from 'lucide-react';
 
-const CommunityShare = ({ variant = 'card' }) => {
+const CommunityShare = () => {
   const [copied, setCopied] = useState(false);
 
   const shareUrl = "https://hazian.ami.bd/";
-  const shareTitle = "হাজিয়ান গ্রাম বাতায়ন (Hazian Village Portal) - চকরিয়া, কক্সবাজার";
   const shareText = "কক্সবাজার জেলার চকরিয়া উপজেলার ১নং ওয়ার্ডের ঐতিহ্যবাহী হাজিয়ান গ্রামের প্রাতিষ্ঠানিক ডিজিটাল পোর্টাল: https://hazian.ami.bd/";
 
   const handleCopy = () => {
@@ -32,36 +31,6 @@ const CommunityShare = ({ variant = 'card' }) => {
       'noopener,noreferrer'
     );
   };
-
-  const handleNativeShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: shareTitle,
-          text: shareText,
-          url: shareUrl,
-        });
-      } catch {
-        // User dismissed share dialog
-      }
-    } else {
-      handleCopy();
-    }
-  };
-
-  if (variant === 'button') {
-    return (
-      <button
-        type="button"
-        onClick={handleNativeShare}
-        className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-800 bg-white/95 hover:bg-white border border-slate-200/80 shadow-xs hover:border-emerald-300 hover:text-emerald-700 transition-all cursor-pointer active:scale-[0.98]"
-        title="হাজিয়ান বাতায়ন শেয়ার করুন"
-      >
-        <Share2 size={16} className="text-emerald-600" />
-        <span>বাতায়ন শেয়ার করুন</span>
-      </button>
-    );
-  }
 
   return (
     <div className="p-5 sm:p-6 rounded-2xl bg-slate-50/80 border border-slate-200/90 shadow-xs my-8 transition-colors hover:border-emerald-300/60">
@@ -139,18 +108,6 @@ const CommunityShare = ({ variant = 'card' }) => {
             )}
           </button>
 
-          {/* Native Share button for Mobile / Tablets */}
-          {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
-            <button
-              type="button"
-              onClick={handleNativeShare}
-              className="inline-flex sm:hidden items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-slate-900 text-white hover:bg-slate-800 transition-all cursor-pointer"
-            >
-              <ExternalLink size={14} />
-              <span>অন্যান্য</span>
-            </button>
-          )}
-
         </div>
 
       </div>
@@ -159,3 +116,4 @@ const CommunityShare = ({ variant = 'card' }) => {
 };
 
 export default CommunityShare;
+
