@@ -2,6 +2,7 @@ import React from "react";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import WeatherPrayerWidget from "./components/WeatherPrayerWidget";
 import About from "./components/About";
 import History from "./components/History";
 import Institutions from "./components/Institutions";
@@ -10,6 +11,7 @@ import CitizenServices from "./components/CitizenServices";
 import EmergencyContacts from "./components/EmergencyContacts";
 import Notables from "./components/Notables";
 import Gallery from "./components/Gallery";
+import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -27,6 +29,9 @@ function App() {
       <main>
         <Hero data={village.heroSection} />
 
+        {/* Local Weather & Prayer Times Widget */}
+        <WeatherPrayerWidget />
+
         {/* Core Info */}
         <About data={village.about} />
         <History data={village.history} />
@@ -40,8 +45,11 @@ function App() {
         <CitizenServices data={village.services} />
         <EmergencyContacts data={village.emergency} />
 
-        {/* Media & Feed */}
+        {/* Media & Gallery */}
         <Gallery data={village.gallery} />
+
+        {/* Frequently Asked Questions */}
+        <FAQ data={village.faq} />
 
         {/* Contact */}
         <Contact data={village.contact} />

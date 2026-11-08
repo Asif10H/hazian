@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Sparkles,
   GraduationCap,
@@ -14,7 +14,14 @@ import {
   FileText,
 } from "lucide-react";
 
+const toBengaliNumber = (num) => {
+  const bengaliDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+  return num.toString().replace(/\d/g, (d) => bengaliDigits[d]);
+};
+
 const Notables = ({ data }) => {
+  const [activeCategory, setActiveCategory] = useState("all");
+
   const iconMap = {
     শিক্ষা: GraduationCap,
     প্রশাসন: Briefcase,
@@ -28,12 +35,59 @@ const Notables = ({ data }) => {
     নেতৃত্ব: HeartHandshake,
   };
 
+  const categories = [
+    { id: "all", label: "সকল" },
+    { id: "freedom_fighter", label: "বীর মুক্তিযোদ্ধা" },
+    { id: "religious", label: "ধর্মীয় ব্যক্তিত্ব" },
+    { id: "local_gov", label: "স্থানীয় সরকার ও নেতৃত্ব" },
+    { id: "culture_corporate", label: "সংস্কৃতি ও করপোরেট" },
+  ];
+
+  const getCategoryCount = (catId) => {
+    if (catId === "all") return data.list.length;
+    if (catId === "freedom_fighter") {
+      return data.list.filter((p) => p.category === "বীর মুক্তিযোদ্ধা").length;
+    }
+    if (catId === "religious") {
+      return data.list.filter((p) => p.category === "ধর্মীয় ব্যক্তিত্ব").length;
+    }
+    if (catId === "local_gov") {
+      return data.list.filter(
+        (p) =>
+          p.category === "স্থানীয় সরকার" ||
+          p.category === "রাজনীতি" ||
+          p.category === "নেতৃত্ব"
+      ).length;
+    }
+    if (catId === "culture_corporate") {
+      return data.list.filter((p) => p.category === "সংস্কৃতি ও করপোরেট").length;
+    }
+    return 0;
+  };
+
+  const filteredList = data.list.filter((person) => {
+    if (activeCategory === "all") return true;
+    if (activeCategory === "freedom_fighter") return person.category === "বীর মুক্তিযোদ্ধা";
+    if (activeCategory === "religious") return person.category === "ধর্মীয় ব্যক্তিত্ব";
+    if (activeCategory === "local_gov") {
+      return (
+        person.category === "স্থানীয় সরকার" ||
+        person.category === "রাজনীতি" ||
+        person.category === "নেতৃত্ব"
+      );
+    }
+    if (activeCategory === "culture_corporate") {
+      return person.category === "সংস্কৃতি ও করপোরেট";
+    }
+    return true;
+  });
+
   return (
     <section id="notables" className="section-padding bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12 reveal">
+        <div className="text-center mb-8 md:mb-10 reveal">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
             {data.title}
           </h2>
@@ -42,15 +96,44 @@ const Notables = ({ data }) => {
           </p>
         </div>
 
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-8 reveal">
+          {categories.map((cat) => {
+            const count = getCategoryCount(cat.id);
+            const isActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setActiveCategory(cat.id)}
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                  isActive
+                    ? "bg-emerald-700 text-white shadow-xs"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900"
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span
+                  className={`px-1.5 py-0.2 rounded-full text-[11px] font-bold ${
+                    isActive ? "bg-white/20 text-white" : "bg-slate-200 text-slate-600"
+                  }`}
+                >
+                  {toBengaliNumber(count)}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Notables Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {data.list.map((person, index) => {
+          {filteredList.map((person, index) => {
             const Icon = iconMap[person.category] || Sparkles;
             const delayClass = `reveal-delay-${(index % 3) + 1}`;
 
             return (
               <div
-                key={index}
+                key={`${person.name}-${index}`}
                 className={`bg-white rounded-xl border border-slate-200/80 shadow-xs hover:border-emerald-300 transition-colors p-5 flex flex-col card-hover-lift reveal ${delayClass}`}
               >
                 {/* Person Header */}

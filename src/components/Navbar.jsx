@@ -16,6 +16,7 @@ const Navbar = ({ data }) => {
     { name: 'নাগরিক সেবা', href: '#services' },
     { name: 'জরুরী নম্বর', href: '#emergency' },
     { name: 'গ্যালারি', href: '#gallery' },
+    { name: 'প্রশ্নোত্তর', href: '#faq' },
   ];
 
   // ScrollSpy to track active section dynamically
@@ -30,6 +31,7 @@ const Navbar = ({ data }) => {
       'services',
       'emergency',
       'gallery',
+      'faq',
       'contact',
     ];
 

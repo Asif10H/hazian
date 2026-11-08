@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { School, Landmark, ShoppingBag, Globe, Building, HeartPulse, BookOpen } from 'lucide-react';
 
+const toBengaliNumber = (num) => {
+  const bengaliDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+  return num.toString().replace(/\d/g, (d) => bengaliDigits[d]);
+};
+
 const Institutions = ({ data }) => {
+  const [activeCategory, setActiveCategory] = useState('all');
+
   const iconMap = {
     'শিক্ষা': School,
     'ধর্মীয়': BookOpen,
@@ -13,12 +20,38 @@ const Institutions = ({ data }) => {
     'সেবা': Globe
   };
 
+  const categories = [
+    { id: 'all', label: 'সবগুলো' },
+    { id: 'education', label: 'শিক্ষা' },
+    { id: 'religious', label: 'ধর্মীয়' },
+    { id: 'health', label: 'স্বাস্থ্য' },
+    { id: 'commerce_service', label: 'বাণিজ্য ও সেবা' },
+  ];
+
+  const getCategoryCount = (catId) => {
+    if (catId === 'all') return data.items.length;
+    if (catId === 'education') return data.items.filter(i => i.type === 'শিক্ষা').length;
+    if (catId === 'religious') return data.items.filter(i => i.type === 'ধর্মীয়' || i.type === 'ধর্মীয়' || i.type === 'মসজিদ').length;
+    if (catId === 'health') return data.items.filter(i => i.type === 'স্বাস্থ্য').length;
+    if (catId === 'commerce_service') return data.items.filter(i => i.type === 'বাণিজ্য' || i.type === 'সেবা' || i.type === 'সামাজিক').length;
+    return 0;
+  };
+
+  const filteredItems = data.items.filter((item) => {
+    if (activeCategory === 'all') return true;
+    if (activeCategory === 'education') return item.type === 'শিক্ষা';
+    if (activeCategory === 'religious') return item.type === 'ধর্মীয়' || item.type === 'ধর্মীয়' || item.type === 'মসজিদ';
+    if (activeCategory === 'health') return item.type === 'স্বাস্থ্য';
+    if (activeCategory === 'commerce_service') return item.type === 'বাণিজ্য' || item.type === 'সেবা' || item.type === 'সামাজিক';
+    return true;
+  });
+
   return (
     <section id="institutions" className="section-padding bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12 reveal">
+        <div className="text-center mb-8 md:mb-10 reveal">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
             {data.title}
           </h2>
@@ -27,14 +60,43 @@ const Institutions = ({ data }) => {
           </p>
         </div>
 
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-8 reveal">
+          {categories.map((cat) => {
+            const count = getCategoryCount(cat.id);
+            const isActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setActiveCategory(cat.id)}
+                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-emerald-700 text-white shadow-xs'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900'
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span
+                  className={`px-1.5 py-0.2 rounded-full text-[11px] font-bold ${
+                    isActive ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-600'
+                  }`}
+                >
+                  {toBengaliNumber(count)}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Institution Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {data.items.map((item, index) => {
+          {filteredItems.map((item, index) => {
             const Icon = iconMap[item.type] || Landmark;
             const delayClass = `reveal-delay-${(index % 3) + 1}`;
             return (
               <div
-                key={index}
+                key={`${item.name}-${index}`}
                 className={`p-5 sm:p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-emerald-300 transition-colors shadow-xs flex flex-col card-hover-lift group reveal ${delayClass}`}
               >
                 <div className="flex items-center justify-between mb-4">
