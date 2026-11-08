@@ -70,16 +70,16 @@ const Institutions = ({ data }) => {
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer border ${
                   isActive
-                    ? 'bg-emerald-700 text-white shadow-xs'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900'
+                    ? 'bg-emerald-700 text-white border-emerald-700 shadow-xs'
+                    : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 hover:border-slate-300'
                 }`}
               >
                 <span>{cat.label}</span>
                 <span
-                  className={`px-1.5 py-0.2 rounded-full text-[11px] font-bold ${
-                    isActive ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-600'
+                  className={`px-1.5 py-0.5 rounded-md text-[11px] font-bold ${
+                    isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600 border border-slate-200/60'
                   }`}
                 >
                   {toBengaliNumber(count)}
@@ -99,10 +99,10 @@ const Institutions = ({ data }) => {
                 className="animate-tab-fade p-5 sm:p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-emerald-300 transition-all duration-200 shadow-xs flex flex-col card-hover-lift group"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     <Icon size={20} />
                   </div>
-                  <span className="px-2.5 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-slate-200 group-hover:border-emerald-200 transition-colors">
+                  <span className="px-2.5 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-lg border border-slate-200 group-hover:border-emerald-200 transition-colors">
                     {item.type}
                   </span>
                 </div>

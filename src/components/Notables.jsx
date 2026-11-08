@@ -106,16 +106,16 @@ const Notables = ({ data }) => {
                 key={cat.id}
                 type="button"
                 onClick={() => setActiveCategory(cat.id)}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all cursor-pointer border ${
                   isActive
-                    ? "bg-emerald-700 text-white shadow-xs"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 hover:text-slate-900"
+                    ? "bg-emerald-700 text-white border-emerald-700 shadow-xs"
+                    : "bg-white text-slate-700 border-slate-200 hover:bg-slate-50 hover:border-slate-300"
                 }`}
               >
                 <span>{cat.label}</span>
                 <span
-                  className={`px-1.5 py-0.2 rounded-full text-[11px] font-bold ${
-                    isActive ? "bg-white/20 text-white" : "bg-slate-200 text-slate-600"
+                  className={`px-1.5 py-0.5 rounded-md text-[11px] font-bold ${
+                    isActive ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600 border border-slate-200/60"
                   }`}
                 >
                   {toBengaliNumber(count)}
@@ -137,14 +137,14 @@ const Notables = ({ data }) => {
               >
                 {/* Person Header */}
                 <div className="flex items-start gap-3.5 mb-3.5">
-                  <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center shrink-0">
                     <Icon size={20} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug truncate">
                       {person.name}
                     </h3>
-                    <span className="inline-block px-2 py-0.5 text-xs font-semibold rounded-md bg-slate-100 text-slate-700 mt-1">
+                    <span className="inline-block px-2.5 py-0.5 text-xs font-semibold rounded-lg bg-slate-100 text-slate-700 mt-1 border border-slate-200/50">
                       {person.category}
                     </span>
                   </div>
@@ -169,7 +169,7 @@ const Notables = ({ data }) => {
                 )}
 
                 {/* Achievement Box */}
-                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 mb-3 flex-1">
+                <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 mb-3 flex-1">
                   <div className="flex gap-2">
                     <FileText size={14} className="shrink-0 text-emerald-600 mt-0.5" />
                     <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
