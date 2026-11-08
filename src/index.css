@@ -174,6 +174,50 @@
   box-shadow: 0 10px 25px -4px rgba(15, 23, 42, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
 }
 
+/* Mobile Navigation Dropdown Animations */
+@keyframes mobileMenuSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileNavItemSlide {
+  0% {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes backdropFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-mobile-menu {
+  animation: mobileMenuSlideDown 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-mobile-item {
+  animation: mobileNavItemSlide 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-backdrop {
+  animation: backdropFadeIn 0.25s ease-out both;
+}
+
 /* Reduced Motion for Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .animate-hero-badge,
@@ -181,6 +225,9 @@
   .animate-hero-subtitle,
   .animate-hero-cta,
   .animate-hero-card,
+  .animate-mobile-menu,
+  .animate-mobile-item,
+  .animate-backdrop,
   .reveal {
     animation: none !important;
     opacity: 1 !important;
