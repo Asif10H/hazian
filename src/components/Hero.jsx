@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { ArrowRight, PhoneCall, MapPin, Eye, ShieldCheck } from "lucide-react";
+import { ArrowRight, PhoneCall, Eye, ShieldCheck } from "lucide-react";
 import siteData from "../data.json";
+import VillageLogo from "./VillageLogo";
 
 // Helper to convert English digits to Bengali digits
 const toBengaliNumber = (num) => {
@@ -143,9 +144,7 @@ const Hero = ({ data }) => {
             {/* Card Header */}
             <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
-                  <MapPin size={22} />
-                </div>
+                <VillageLogo className="w-11 h-11 shadow-md ring-emerald-500/30" />
                 <div>
                   <h3 className="text-lg font-bold text-white">হাজিয়ান গ্রাম বাতায়ন</h3>
                   <p className="text-xs text-slate-400 font-medium">১নং ওয়ার্ড • চকরিয়া, কক্সবাজার</p>

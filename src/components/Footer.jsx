@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Globe } from 'lucide-react';
+import VillageLogo from './VillageLogo';
 
 const Footer = () => {
   return (
@@ -8,10 +8,8 @@ const Footer = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left mb-8">
           <div className="flex flex-col items-center md:items-start max-w-sm">
-            <div className="flex items-center gap-2 mb-1.5">
-              <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
-                <MapPin size={16} />
-              </div>
+            <div className="flex items-center gap-2.5 mb-1.5 group">
+              <VillageLogo className="w-8 h-8 rounded-lg p-1.5" />
               <span className="font-bold text-xl text-slate-900">হাজিয়ান গ্রাম বাতায়ন</span>
             </div>
             <span className="text-emerald-700 font-semibold text-xs tracking-wide uppercase mb-2">

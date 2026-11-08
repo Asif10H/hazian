@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MapPin, PhoneCall } from 'lucide-react';
+import { Menu, X, PhoneCall } from 'lucide-react';
+import VillageLogo from './VillageLogo';
 
 const Navbar = ({ data }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -70,9 +71,7 @@ const Navbar = ({ data }) => {
             onClick={() => setActiveSection('#home')}
             className="flex items-center gap-2.5 group focus:outline-hidden"
           >
-            <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs group-hover:bg-emerald-700 transition-colors">
-              <MapPin size={20} />
-            </div>
+            <VillageLogo className="w-10 h-10" />
             <div className="flex flex-col">
               <span className="font-bold text-xl sm:text-2xl text-slate-900 tracking-tight leading-tight">
                 {data.name}
