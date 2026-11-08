@@ -1,11 +1,14 @@
 import React from 'react';
-import { School, Landmark, Church, ShoppingBag, Globe, Building } from 'lucide-react';
+import { School, Landmark, ShoppingBag, Globe, Building, HeartPulse, BookOpen } from 'lucide-react';
 
 const Institutions = ({ data }) => {
   const iconMap = {
     'শিক্ষা': School,
-    'ধর্মীয়': Church,
+    'ধর্মীয়': BookOpen,
+    'ধর্মীয়': BookOpen,
     'মসজিদ': Landmark,
+    'স্বাস্থ্য': HeartPulse,
+    'সামাজিক': Building,
     'বাণিজ্য': ShoppingBag,
     'সেবা': Globe
   };
