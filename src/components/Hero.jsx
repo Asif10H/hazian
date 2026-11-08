@@ -5,6 +5,14 @@ import siteData from "../data.json";
 const Hero = ({ data }) => {
   const stats = siteData.village.about.stats;
   const [views, setViews] = useState(null);
+  const [bgLoaded, setBgLoaded] = useState(false);
+
+  useEffect(() => {
+    // Preload background image smoothly
+    const img = new Image();
+    img.src = data.imageUrl;
+    img.onload = () => setBgLoaded(true);
+  }, [data.imageUrl]);
 
   useEffect(() => {
     const namespace = "hazian-page-views";
@@ -27,9 +35,11 @@ const Hero = ({ data }) => {
       id="home"
       className="relative min-h-[92vh] lg:min-h-screen w-full flex flex-col justify-center overflow-hidden bg-slate-950 pt-24 pb-16 lg:py-20"
     >
-      {/* Background Image with Crisp Overlay */}
+      {/* Background Image with Crisp Overlay & Smooth Fade-in */}
       <div
-        className="absolute inset-0 z-0"
+        className={`absolute inset-0 z-0 transition-opacity duration-1000 ${
+          bgLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
         style={{
           backgroundImage: `url(${data.imageUrl})`,
           backgroundSize: "cover",

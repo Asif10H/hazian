@@ -1,7 +1,8 @@
-import React from 'react';
-import { Users, Landmark, MapPin, CheckCircle2, ChevronDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { Users, Landmark, MapPin, CheckCircle2, ChevronDown, Image as ImageIcon } from 'lucide-react';
 
 const About = ({ data }) => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const icons = [Users, Landmark, MapPin];
 
   return (
@@ -9,16 +10,25 @@ const About = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Image with Clean Framing */}
+          {/* Left Column: Image with Clean Framing & Skeleton Shimmer */}
           <div className="lg:col-span-5 relative">
-            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative min-h-[300px] sm:min-h-[400px]">
+              {!isImageLoaded && (
+                <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400">
+                  <ImageIcon size={36} className="opacity-35" />
+                </div>
+              )}
+
               <img
                 src="https://ik.imagekit.io/pswee0uqu/hazian/IMG_3529.HEIC?tr=w-800,f-auto,q-80"
                 alt="হাজিয়ান গ্রামের প্রাকৃতিক দৃশ্য - মাতামুহুরী নদীর তীরে সবুজ প্রকৃতি, চকরিয়া, কক্সবাজার"
                 loading="lazy"
                 width="800"
                 height="550"
-                className="w-full h-[320px] sm:h-[420px] object-cover"
+                onLoad={() => setIsImageLoaded(true)}
+                className={`w-full h-[320px] sm:h-[420px] object-cover transition-opacity duration-500 ${
+                  isImageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
               />
             </div>
             

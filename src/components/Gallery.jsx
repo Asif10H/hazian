@@ -1,6 +1,53 @@
 import React, { useState } from 'react';
 import { X, Loader2, Image as ImageIcon } from 'lucide-react';
 
+const GalleryCard = ({ item, onSelect }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const thumbnailUrl = item.url.includes('?') 
+    ? `${item.url}&tr=w-600,f-auto,q-75` 
+    : `${item.url}?tr=w-600,f-auto,q-75`;
+
+  const fullUrl = item.url.includes('?')
+    ? `${item.url}&tr=f-auto`
+    : `${item.url}?tr=f-auto`;
+
+  return (
+    <div 
+      className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-xs cursor-pointer flex flex-col hover:border-slate-300 hover:shadow-sm transition-all"
+      onClick={() => onSelect({ title: item.title, url: fullUrl })}
+    >
+      <div className="aspect-[4/3] w-full overflow-hidden relative bg-slate-100">
+        {/* Skeleton Shimmer Loading Placeholder */}
+        {!isLoaded && (
+          <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400">
+            <ImageIcon size={28} className="opacity-35" />
+          </div>
+        )}
+
+        <img
+          src={thumbnailUrl}
+          alt={item.title}
+          loading="lazy"
+          onLoad={() => setIsLoaded(true)}
+          className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      </div>
+      
+      <div className="p-3 bg-white border-t border-slate-100 flex items-center justify-between">
+        <span className="text-xs sm:text-sm font-semibold text-slate-800 truncate">
+          {item.title}
+        </span>
+        <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
+          চকরিয়া
+        </span>
+      </div>
+    </div>
+  );
+};
+
 const Gallery = ({ data }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,43 +75,15 @@ const Gallery = ({ data }) => {
           </p>
         </div>
 
-        {/* Photo Grid */}
+        {/* Photo Grid with Skeleton Shimmer */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {data.map((item) => {
-            const thumbnailUrl = item.url.includes('?') 
-              ? `${item.url}&tr=w-600,f-auto,q-75` 
-              : `${item.url}?tr=w-600,f-auto,q-75`;
-
-            const fullUrl = item.url.includes('?')
-              ? `${item.url}&tr=f-auto`
-              : `${item.url}?tr=f-auto`;
-
-            return (
-              <div 
-                key={item.id} 
-                className="group relative overflow-hidden rounded-xl border border-slate-200/80 bg-slate-100 shadow-xs cursor-pointer"
-                onClick={() => handleImageSelect({ title: item.title, url: fullUrl })}
-              >
-                <div className="aspect-[4/3] w-full overflow-hidden">
-                  <img
-                    src={thumbnailUrl}
-                    alt={item.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                
-                <div className="p-3 bg-white border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs sm:text-sm font-semibold text-slate-800 truncate">
-                    {item.title}
-                  </span>
-                  <span className="text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
-                    চকরিয়া
-                  </span>
-                </div>
-              </div>
-            );
-          })}
+          {data.map((item) => (
+            <GalleryCard 
+              key={item.id} 
+              item={item} 
+              onSelect={handleImageSelect} 
+            />
+          ))}
         </div>
 
       </div>
@@ -79,7 +98,7 @@ const Gallery = ({ data }) => {
           }}
         >
           <button 
-            className="absolute top-4 right-4 w-10 h-10 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors z-50"
+            className="absolute top-4 right-4 w-10 h-10 rounded-lg bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors z-50 cursor-pointer"
             onClick={() => {
               setSelectedImage(null);
               setIsLoading(false);
@@ -92,7 +111,7 @@ const Gallery = ({ data }) => {
           {isLoading && (
             <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
               <Loader2 className="w-8 h-8 text-white animate-spin mb-2" />
-              <p className="text-white/80 text-xs">ছবি লোড হচ্ছে...</p>
+              <p className="text-white/80 text-xs font-medium">ছবি লোড হচ্ছে...</p>
             </div>
           )}
           
