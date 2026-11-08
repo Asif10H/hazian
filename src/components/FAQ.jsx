@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 
 const FAQ = ({ data }) => {
-  const [openIndex, setOpenIndex] = useState(0);
+  // Allow multiple FAQ items to stay open independently
+  const [openIndices, setOpenIndices] = useState([0]);
 
   const toggleAccordion = (index) => {
-    setOpenIndex(prev => (prev === index ? -1 : index));
+    setOpenIndices((prev) =>
+      prev.includes(index)
+        ? prev.filter((i) => i !== index)
+        : [...prev, index]
+    );
   };
 
   if (!data || !data.items || data.items.length === 0) return null;
@@ -24,19 +29,18 @@ const FAQ = ({ data }) => {
           </p>
         </div>
 
-        {/* FAQ Accordion List */}
+        {/* FAQ Multi-Open List */}
         <div className="space-y-3.5">
           {data.items.map((item, index) => {
-            const isOpen = openIndex === index;
-            const delayClass = `reveal-delay-${(index % 3) + 1}`;
+            const isOpen = openIndices.includes(index);
 
             return (
               <div
                 key={index}
-                className={`rounded-xl border transition-all duration-200 overflow-hidden reveal ${delayClass} ${
+                className={`rounded-xl border transition-all duration-200 overflow-hidden ${
                   isOpen
                     ? 'bg-white border-emerald-300 shadow-sm'
-                    : 'bg-white/80 border-slate-200/80 hover:border-slate-300'
+                    : 'bg-white/90 border-slate-200/80 hover:border-slate-300'
                 }`}
               >
                 <button
@@ -46,11 +50,15 @@ const FAQ = ({ data }) => {
                   className="w-full px-5 py-4 sm:px-6 sm:py-4.5 text-left flex items-center justify-between gap-4 cursor-pointer select-none transition-colors"
                 >
                   <div className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-md bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
+                    <span className={`w-6 h-6 rounded-md flex items-center justify-center shrink-0 mt-0.5 border transition-colors ${
+                      isOpen
+                        ? 'bg-emerald-100 text-emerald-800 border-emerald-200'
+                        : 'bg-emerald-50 text-emerald-700 border-emerald-100'
+                    }`}>
                       <HelpCircle size={15} />
                     </span>
                     <span className={`text-base sm:text-lg font-bold transition-colors ${
-                      isOpen ? 'text-emerald-900' : 'text-slate-900 hover:text-emerald-700'
+                      isOpen ? 'text-emerald-950' : 'text-slate-900 hover:text-emerald-700'
                     }`}>
                       {item.question}
                     </span>
@@ -64,8 +72,8 @@ const FAQ = ({ data }) => {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-700 leading-relaxed border-t border-slate-100/80">
-                    <p className="pt-2 font-normal">
+                  <div className="px-5 pb-5 pt-1 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-700 leading-relaxed border-t border-slate-100">
+                    <p className="pt-2 font-normal animate-tab-fade">
                       {item.answer}
                     </p>
                   </div>
@@ -81,4 +89,3 @@ const FAQ = ({ data }) => {
 };
 
 export default FAQ;
-
