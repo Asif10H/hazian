@@ -1,51 +1,57 @@
 import React from "react";
-import { User, Phone } from "lucide-react";
+import { User, Phone, Users } from "lucide-react";
 
 const Representatives = ({ data }) => {
   return (
-    <section
-      id="representatives"
-      className="section-padding bg-slate-50 relative overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12 md:mb-14">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans text-slate-900 mb-4">
+    <section id="representatives" className="section-padding bg-slate-50 border-b border-slate-200/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center mb-10 md:mb-12">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <Users size={14} />
+            জনপ্রতিনিধিত্ব
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
             {data.title}
           </h2>
-          <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto">
-            আমাদের গ্রামের উন্নয়নে নিয়োজিত জনপ্রতিনিধি এবং সমাজ সংস্কারকবৃন্দ।
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            হাজিয়ান গ্রামের সার্বিক উন্নয়ন ও জনসেবায় দায়িত্বপ্রাপ্ত বর্তমান ও স্থানীয় নেতৃবৃন্দ।
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Representatives Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {data.list.map((rep, index) => (
             <div
               key={index}
-              className="relative p-6 sm:p-7 bg-white border border-slate-100 rounded-2xl sm:rounded-3xl shadow-md hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-300 group text-center hover:-translate-y-1"
+              className="p-5 sm:p-6 bg-white border border-slate-200/80 rounded-xl shadow-xs text-center flex flex-col items-center hover:border-slate-300 transition-colors"
             >
-              <div className="absolute top-6 right-6 opacity-[0.03] group-hover:opacity-[0.1] transition-opacity">
-                <User size={80} />
+              <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-3.5 border-2 border-emerald-500/20 text-slate-600">
+                <User size={30} strokeWidth={1.5} />
               </div>
 
-              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-5 border-4 border-white shadow-emerald-200 shadow-md text-emerald-600">
-                <User size={38} strokeWidth={1.5} />
-              </div>
-
-              <h3 className="text-2xl font-black font-sans text-slate-900 mb-1.5 truncate">
+              <h3 className="text-lg font-bold text-slate-900 mb-1">
                 {rep.name}
               </h3>
-              <p className="text-emerald-700 font-bold text-sm sm:text-base mb-5">{rep.role}</p>
+              
+              <div className="mb-4">
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200/60">
+                  {rep.role}
+                </span>
+              </div>
 
               <a
                 href={`tel:${rep.phone}`}
-                className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-xl bg-slate-900 text-white font-bold hover:bg-emerald-600 transition-colors w-full justify-center group/btn text-base"
+                className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-900 text-white text-xs sm:text-sm font-semibold hover:bg-emerald-700 transition-colors w-full"
               >
-                <Phone size={16} className="group-hover/btn:animate-bounce" />
+                <Phone size={14} />
                 {rep.phone}
               </a>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

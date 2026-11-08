@@ -6,7 +6,6 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Show button when page is scrolled down 300px
       if (window.scrollY > 300) {
         setIsVisible(true);
       } else {
@@ -28,12 +27,12 @@ const ScrollToTop = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 p-3 rounded-2xl bg-emerald-600 text-white shadow-2xl hover:bg-emerald-700 hover:scale-110 active:scale-95 hover:-translate-y-1 transition-all duration-500 z-50 border border-emerald-400 cursor-pointer ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+      className={`fixed bottom-6 right-6 w-10 h-10 rounded-xl bg-slate-900 text-white shadow-md hover:bg-emerald-600 transition-all duration-300 z-40 border border-slate-700/60 flex items-center justify-center cursor-pointer ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
-      aria-label="Scroll to top"
+      aria-label="উপরে যান"
     >
-      <ArrowUp size={24} strokeWidth={3} />
+      <ArrowUp size={18} />
     </button>
   );
 };

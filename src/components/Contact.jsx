@@ -3,72 +3,121 @@ import { MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
 
 const Contact = ({ data }) => {
   return (
-    <section id="contact" className="section-padding bg-white relative overflow-hidden">
+    <section id="contact" className="section-padding bg-slate-50 border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch">
+        {/* Section Header */}
+        <div className="text-center mb-10 md:mb-12">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <MapPin size={14} />
+            সরাসরি যোগাযোগ ও অবস্থান
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
+            যোগাযোগ ও অবস্থান
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            হাজিয়ান গ্রামের যেকোনো নাগরিক তথ্য, অভিযোগ বা পরামর্শের জন্য আমাদের সাথে যোগাযোগ করুন।
+          </p>
+        </div>
+
+        {/* 2-Column Contact Info + Google Maps */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
-          <div className="w-full lg:w-4/12 bg-emerald-600 p-8 sm:p-10 rounded-2xl sm:rounded-3xl shadow-xl flex flex-col justify-center relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[80px] -mr-32 -mt-32 group-hover:scale-150 transition-transform duration-1000" />
-            
-            <h2 className="text-3xl sm:text-4xl font-black text-white mb-3 relative z-10 tracking-tight">যোগাযোগ</h2>
-            <p className="text-base sm:text-lg text-emerald-50 font-medium mb-8 relative z-10 opacity-90">হাজিয়ান গ্রামের যেকোনো তথ্য বা সেবার জন্য আমাদের সাথে কথা বলুন।</p>
+          {/* Contact Details Card */}
+          <div className="lg:col-span-5 bg-slate-900 text-white p-6 sm:p-7 rounded-xl border border-slate-800 shadow-xs flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">
+                গ্রাম তথ্য ও যোগাযোগ কেন্দ্র
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300 font-normal mb-6 leading-relaxed">
+                ১নং ওয়ার্ড, ফাঁসিয়াখালী ইউনিয়ন পরিষদ, চকরিয়া, কক্সবাজার।
+              </p>
 
-            <div className="space-y-6 relative z-10">
-              <div className="flex items-center gap-4 sm:gap-5">
-                <div className="w-12 h-12 shrink-0 bg-white/20 rounded-xl flex items-center justify-center text-white shadow-md backdrop-blur-md">
-                  <MapPin size={22} />
+              <div className="space-y-4">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 border border-slate-700">
+                    <MapPin size={18} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                      ঠিকানা
+                    </div>
+                    <p className="text-sm font-semibold text-white mt-0.5">
+                      {data.address}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-emerald-100 text-xs font-bold uppercase tracking-wider mb-0.5">অবস্থান</h4>
-                  <p className="text-white font-bold text-base sm:text-lg leading-snug">{data.address}</p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-4 sm:gap-5 group/item cursor-pointer">
-                <div className="w-12 h-12 shrink-0 bg-white/20 rounded-xl flex items-center justify-center text-white shadow-md backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
-                  <Mail size={22} />
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 border border-slate-700">
+                    <Mail size={18} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                      ইমেইল
+                    </div>
+                    <a 
+                      href={`mailto:${data.email}`} 
+                      className="text-sm font-semibold text-white hover:text-emerald-400 transition-colors mt-0.5 block"
+                    >
+                      {data.email}
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-emerald-100 text-xs font-bold uppercase tracking-wider mb-0.5">ইমেইল</h4>
-                  <a href={`mailto:${data.email}`} className="text-white font-bold text-base sm:text-lg hover:text-emerald-100 transition-colors">{data.email}</a>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-4 sm:gap-5 group/item cursor-pointer">
-                <div className="w-12 h-12 shrink-0 bg-white/20 rounded-xl flex items-center justify-center text-white shadow-md backdrop-blur-md group-hover/item:bg-white group-hover/item:text-emerald-600 transition-all">
-                  <Phone size={22} />
-                </div>
-                <div>
-                  <h4 className="text-emerald-100 text-xs font-bold uppercase tracking-wider mb-0.5">ফোন</h4>
-                  <a href={`tel:${data.phone}`} className="text-white font-bold text-base sm:text-lg hover:text-emerald-100 transition-colors uppercase">{data.phone}</a>
+                <div className="flex items-start gap-3.5">
+                  <div className="w-9 h-9 rounded-lg bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 border border-slate-700">
+                    <Phone size={18} />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                      জরুরি হেল্পলাইন
+                    </div>
+                    <a 
+                      href={`tel:${data.phone}`} 
+                      className="text-sm font-semibold text-white hover:text-emerald-400 transition-colors mt-0.5 block"
+                    >
+                      {data.phone}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className="pt-6 border-t border-slate-800 mt-6 text-xs text-slate-400">
+              কার্যদিবস: রবিবার হতে বৃহস্পতিবার (সকাল ৯টা হতে বিকাল ৫টা)
+            </div>
           </div>
 
-          <div className="w-full lg:w-8/12 bg-slate-50 border border-slate-100 rounded-2xl sm:rounded-3xl shadow-xl relative overflow-hidden min-h-[420px] lg:min-h-[460px] group">
+          {/* Interactive Google Maps Frame */}
+          <div className="lg:col-span-7 bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-xs relative min-h-[360px] sm:min-h-[420px]">
             <iframe 
-               src="https://maps.google.com/maps?q=Q34R%2BGQ9,+Kakara&t=m&z=15&output=embed&iwloc=near"
-               title="Hazian Map"
-               width="100%" 
-               height="100%" 
-               style={{ border: 0, position: 'absolute', top: 0, left: 0 }} 
-               allowFullScreen="" 
-               loading="lazy" 
-               referrerPolicy="no-referrer-when-downgrade"
-               className="grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 pointer-events-auto"
-            ></iframe>
+              src="https://maps.google.com/maps?q=Q34R%2BGQ9,+Kakara&t=m&z=15&output=embed&iwloc=near"
+              title="Hazian Map"
+              width="100%" 
+              height="100%" 
+              style={{ border: 0, position: 'absolute', top: 0, left: 0 }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full h-full"
+            />
             
-            <div className="absolute top-6 left-6 sm:top-8 sm:left-8 z-20 flex gap-4">
-              <a href="https://maps.app.goo.gl/YttXbSo8JCqcuF7r5" target="_blank" rel="noopener noreferrer" className="px-6 py-3 sm:px-8 sm:py-4 bg-white/90 backdrop-blur-md text-slate-800 rounded-2xl font-bold shadow-2xl hover:bg-emerald-600 hover:text-white hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2 sm:gap-3 group/btn border border-white/50">
-                 <ExternalLink size={20} className="group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                 বড় ম্যাপে দেখুন
+            <div className="absolute top-4 left-4 z-10">
+              <a 
+                href="https://maps.app.goo.gl/YttXbSo8JCqcuF7r5" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="px-3.5 py-2 bg-white/95 backdrop-blur-xs text-slate-800 text-xs font-bold rounded-lg shadow-sm hover:bg-emerald-600 hover:text-white transition-colors inline-flex items-center gap-1.5 border border-slate-200"
+              >
+                <ExternalLink size={14} />
+                গুগল ম্যাপে বড় করে দেখুন
               </a>
             </div>
           </div>
 
         </div>
+
       </div>
     </section>
   );

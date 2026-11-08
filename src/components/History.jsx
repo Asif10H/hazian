@@ -23,111 +23,94 @@ const iconMap = {
   TrendingUp,
 };
 
-const gradients = [
-  "from-blue-500 to-cyan-500",
-  "from-violet-500 to-purple-500",
-  "from-amber-500 to-orange-500",
-  "from-emerald-500 to-teal-500",
-  "from-red-500 to-rose-500",
-  "from-indigo-500 to-blue-600",
-];
-
 const History = ({ data }) => {
   return (
-    <section
-      id="history"
-      className="section-padding bg-slate-50 relative overflow-hidden"
-    >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="history" className="section-padding bg-slate-50 border-b border-slate-200/80">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 font-bold mb-4 text-xs sm:text-sm">
-            <HistoryIcon size={16} />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <HistoryIcon size={14} />
             {data.title}
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            গৌরবময় ঐতিহ্য
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+            হাজিয়ান গ্রামের ইতিহাস ও ঐতিহ্য
           </h2>
 
           {/* Intro Card */}
-          <div className="p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-100 shadow-lg mb-6">
-            <Quote size={28} className="text-emerald-400 mx-auto mb-3" />
-            <p className="text-lg md:text-xl text-slate-700 leading-[1.8] font-medium italic">
+          <div className="p-5 sm:p-7 rounded-xl bg-white border border-slate-200/80 shadow-xs mb-6 text-left sm:text-center">
+            <Quote size={24} className="text-emerald-600 mb-2 sm:mx-auto" />
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
               {data.intro}
             </p>
           </div>
 
           {/* Achievement Badges */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 mb-10 md:mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {data.achievements.map((achievement, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center gap-2.5 p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-slate-100 shadow-sm text-slate-800 font-bold transition-all hover:bg-emerald-600 hover:text-white hover:shadow-lg hover:translate-y-[-2px] duration-300"
+                className="p-4 rounded-xl bg-white border border-slate-200/80 flex items-start gap-3 text-left shadow-xs"
               >
-                <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
-                  <Award size={18} />
+                <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-100">
+                  <Award size={16} />
                 </div>
-                <span className="text-sm sm:text-base text-center">{achievement}</span>
+                <span className="text-xs sm:text-sm font-semibold text-slate-700 leading-snug">
+                  {achievement}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Serial Sections - Timeline */}
+        {/* Timeline Layout */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[1.75rem] md:left-[2rem] top-0 bottom-0 w-[3px] bg-gradient-to-b from-emerald-400 via-blue-400 to-violet-400 rounded-full hidden md:block" />
+          <div className="absolute left-6 top-4 bottom-4 w-0.5 bg-slate-200 hidden md:block" />
 
-          <div className="space-y-6 md:space-y-7">
+          <div className="space-y-6">
             {data.sections.map((section, index) => {
               const IconComponent = iconMap[section.icon] || Star;
-              const gradient = gradients[index % gradients.length];
 
               return (
-                <div key={index} className="relative group">
-                  <div className="flex gap-4 md:gap-6">
-                    {/* Serial Number Circle — desktop only (left timeline) */}
-                    <div className="relative z-10 shrink-0 hidden md:flex">
-                      <div
-                        className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300`}
-                      >
-                        <span className="text-white font-black text-base md:text-lg">
-                          {section.serial}
-                        </span>
-                      </div>
+                <div key={index} className="relative">
+                  <div className="flex gap-4 md:gap-6 items-start">
+                    
+                    {/* Serial Number Node (Desktop) */}
+                    <div className="relative z-10 shrink-0 hidden md:flex items-center justify-center w-12 h-12 rounded-xl bg-slate-900 text-white font-bold text-sm shadow-xs border-2 border-white">
+                      {section.serial}
                     </div>
 
                     {/* Content Card */}
-                    <div className="flex-1 relative p-5 md:p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:translate-y-[-1px] transition-all duration-300">
-                      {/* Serial badge — mobile only (top-right corner) */}
-                      <div
-                        className={`absolute -top-3 -left-3 md:hidden w-8 h-8 rounded-lg bg-gradient-to-br ${gradient} flex items-center justify-center shadow-md z-20`}
-                      >
-                        <span className="text-white font-black text-xs">
-                          {section.serial}
-                        </span>
+                    <div className="flex-1 p-5 sm:p-6 rounded-xl bg-white border border-slate-200/80 shadow-xs hover:border-slate-300 transition-colors">
+                      
+                      {/* Mobile Serial Badge */}
+                      <div className="md:hidden inline-flex items-center gap-1 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-md mb-2">
+                        অধ্যায় {section.serial}
                       </div>
-                      <div className="flex items-center gap-2.5 mb-3">
-                        <IconComponent size={20} className="text-slate-400" />
-                        <h3 className="text-lg md:text-xl font-bold text-slate-900">
+
+                      <div className="flex items-center gap-2 mb-2.5">
+                        <IconComponent size={18} className="text-emerald-700 shrink-0" />
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900">
                           {section.title}
                         </h3>
                       </div>
 
-                      <p className="text-sm md:text-base text-slate-600 leading-relaxed mb-3">
+                      <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                         {section.content}
                       </p>
 
-                      {/* Tags for পাড়া list */}
+                      {/* Para Tags */}
                       {section.tags && (
-                        <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-slate-100">
-                          <span className="text-xs text-slate-400 font-semibold mr-1">
-                            পাড়াসমূহ:
+                        <div className="flex flex-wrap items-center gap-1.5 mt-3 pt-3 border-t border-slate-100">
+                          <span className="text-xs font-semibold text-slate-500 mr-1">
+                            অন্তর্ভুক্ত পাড়া:
                           </span>
                           {section.tags.map((tag, i) => (
                             <span
                               key={i}
-                              className="px-2.5 py-0.5 rounded-full bg-violet-50 text-violet-700 text-xs font-semibold border border-violet-100 hover:bg-violet-100 transition-colors"
+                              className="px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 text-xs font-medium"
                             >
                               {tag}
                             </span>
@@ -135,25 +118,23 @@ const History = ({ data }) => {
                         </div>
                       )}
 
-                      {/* Freedom Fighter Highlight */}
+                      {/* Freedom Fighter Highlight Card */}
                       {section.highlight && (
-                        <div className="mt-4 p-4 rounded-xl bg-gradient-to-r from-red-50 to-orange-50 border border-red-100">
-                          <div className="flex items-center gap-2 mb-2">
-                            <Flag size={16} className="text-red-600" />
-                            <span className="text-xs font-bold text-red-700 uppercase tracking-wide">
-                              উল্লেখযোগ্য বীর মুক্তিযোদ্ধা
+                        <div className="mt-4 p-4 rounded-lg bg-emerald-50/60 border border-emerald-200/80">
+                          <div className="flex items-center gap-1.5 mb-1.5">
+                            <Flag size={15} className="text-red-600" />
+                            <span className="text-xs font-bold text-emerald-900 uppercase tracking-wider">
+                              স্মরণীয় বীর মুক্তিযোদ্ধা
                             </span>
                           </div>
-                          <h4 className="text-lg font-black text-slate-900 mb-1.5">
+                          <h4 className="text-base font-bold text-slate-900">
                             {section.highlight.name}
                           </h4>
-                          <div className="flex items-center gap-2 text-slate-600 mb-1">
+                          <div className="flex items-center gap-1.5 text-xs text-slate-600 mt-0.5">
                             <User size={13} />
-                            <span className="text-xs sm:text-sm">
-                              পিতা: {section.highlight.father}
-                            </span>
+                            <span>পিতা: {section.highlight.father}</span>
                           </div>
-                          <p className="text-xs sm:text-sm font-semibold text-red-600 mt-1.5">
+                          <p className="text-xs font-semibold text-emerald-800 mt-1.5">
                             {section.highlight.detail}
                           </p>
                         </div>
@@ -161,14 +142,14 @@ const History = ({ data }) => {
 
                       {/* Crop Tags */}
                       {section.crops && (
-                        <div className="flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-slate-100">
-                          <span className="text-xs text-slate-400 font-semibold mr-1">
-                            প্রধান ফসল:
+                        <div className="flex flex-wrap items-center gap-1.5 mt-3 pt-3 border-t border-slate-100">
+                          <span className="text-xs font-semibold text-slate-500 mr-1">
+                            প্রধান কৃষিজ ফসল:
                           </span>
                           {section.crops.map((crop, i) => (
                             <span
                               key={i}
-                              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-100"
+                              className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-800 text-xs font-medium border border-emerald-100"
                             >
                               <Wheat size={12} />
                               {crop}
@@ -176,6 +157,7 @@ const History = ({ data }) => {
                           ))}
                         </div>
                       )}
+
                     </div>
                   </div>
                 </div>
@@ -184,15 +166,16 @@ const History = ({ data }) => {
           </div>
         </div>
 
-        {/* Conclusion */}
+        {/* Conclusion Banner */}
         {data.conclusion && (
-          <div className="mt-10 md:mt-12 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-center shadow-xl">
-            <h3 className="text-lg font-bold mb-2 opacity-90">উপসংহার</h3>
-            <p className="text-base md:text-lg leading-relaxed font-medium opacity-95">
+          <div className="mt-8 p-5 sm:p-6 rounded-xl bg-slate-900 text-white text-center shadow-xs">
+            <h3 className="text-base font-bold text-emerald-400 mb-1.5">সারসংক্ষেপ</h3>
+            <p className="text-sm sm:text-base leading-relaxed text-slate-300 font-normal max-w-3xl mx-auto">
               {data.conclusion}
             </p>
           </div>
         )}
+
       </div>
     </section>
   );

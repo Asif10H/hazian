@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Noto Sans Bengali", sans-serif;
+  --font-sans: "Noto Sans Bengali", system-ui, -apple-system, sans-serif;
 
-  /* Modern Vibrant Palette */
-  --color-brand-primary: #10b981; /* Emerald Green */
-  --color-brand-primary-dark: #059669;
-  --color-brand-secondary: #3b82f6; /* Modern Blue */
-  --color-brand-accent: #f59e0b; /* Amber */
+  /* Refined Civic & Institutional Palette */
+  --color-brand-primary: #059669; /* Emerald 600 */
+  --color-brand-primary-dark: #047857; /* Emerald 700 */
+  --color-brand-secondary: #0284c7; /* Sky 600 */
+  --color-brand-accent: #d97706; /* Amber 600 */
   --color-ui-bg: #ffffff;
   --color-ui-soft: #f8fafc;
-  --color-ui-text: #1e293b; /* Slate 800 */
+  --color-ui-text: #0f172a; /* Slate 900 */
 }
 
 @layer base {
@@ -21,74 +21,37 @@
   }
 
   body {
-    @apply bg-ui-soft text-ui-text font-sans;
+    @apply bg-slate-50 text-slate-900 font-sans antialiased;
   }
 
-  /* Custom Smooth Scrollbar */
+  /* Refined Minimalist Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
     @apply bg-transparent;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 rounded-full border-2 border-transparent bg-clip-padding;
+    @apply bg-slate-300 rounded-full;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-brand-primary;
+    @apply bg-emerald-600;
   }
 
   ::selection {
-    @apply bg-brand-primary/20 text-brand-primary-dark;
+    @apply bg-emerald-100 text-emerald-900;
   }
 }
 
 @layer utilities {
-  .glass-card {
-    @apply bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.06)];
-  }
-
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary;
-  }
-
-  .modern-shadow {
-    box-shadow: 0 20px 40px -8px rgb(0 0 0 / 0.1), 0 10px 14px -6px rgb(0 0 0 / 0.05);
-  }
-
-  .hover-lift {
-    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl;
-  }
-
-  /* Custom Section Spacing */
+  /* Standard Section Spacing */
   .section-padding {
-    @apply py-14 md:py-20;
+    @apply py-12 md:py-16;
   }
-}
 
-/* Animations & Keyframes */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  /* Clean Standard Card */
+  .standard-card {
+    @apply bg-white border border-slate-200/80 rounded-2xl shadow-xs transition-all duration-200 hover:shadow-md hover:border-slate-300;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
 }

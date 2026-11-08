@@ -1,5 +1,5 @@
 import React from 'react';
-import { School, Landmark, Church, ShoppingBag, Globe } from 'lucide-react';
+import { School, Landmark, Church, ShoppingBag, Globe, Building } from 'lucide-react';
 
 const Institutions = ({ data }) => {
   const iconMap = {
@@ -11,30 +11,53 @@ const Institutions = ({ data }) => {
   };
 
   return (
-    <section id="institutions" className="section-padding bg-white">
+    <section id="institutions" className="section-padding bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-14 animate-fade-in">
-           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-sans text-slate-900 mb-4">{data.title}</h2>
-           <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto">আমাদের গ্রামের সামাজিক ও ধর্মীয় উন্নয়ন এবং জীবনযাত্রার প্রাণকেন্দ্রসমূহ।</p>
+        
+        {/* Section Header */}
+        <div className="text-center mb-10 md:mb-12">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <Building size={14} />
+            সামাজিক ও ধর্মীয় প্রতিষ্ঠান
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
+            {data.title}
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            হাজিয়ান গ্রামের শিক্ষা, ধর্মীয় অনুশাসন এবং সামাজিক জীবনযাত্রার প্রাণকেন্দ্রসমূহ।
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-           {data.items.map((item, index) => {
-             const Icon = iconMap[item.type] || Landmark;
-             return (
-               <div key={index} className="p-6 sm:p-7 rounded-2xl sm:rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-xl hover:border-emerald-200 hover:-translate-y-1.5 transition-all duration-300 group flex flex-col items-center text-center">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                     <Icon size={28} strokeWidth={1.5} />
+        {/* Institution Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {data.items.map((item, index) => {
+            const Icon = iconMap[item.type] || Landmark;
+            return (
+              <div
+                key={index}
+                className="p-5 sm:p-6 rounded-xl bg-slate-50/70 border border-slate-200/80 hover:bg-white hover:border-slate-300 transition-colors shadow-xs flex flex-col"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center">
+                    <Icon size={20} />
                   </div>
-                  <div className="inline-block px-3 py-1 bg-white text-emerald-700 text-xs font-black uppercase tracking-widest rounded-full border border-emerald-50 mb-3">
-                     {item.type}
-                  </div>
-                  <h3 className="text-2xl font-black font-sans text-slate-900 mb-2.5">{item.name}</h3>
-                  <p className="text-base text-slate-500 leading-relaxed">{item.description}</p>
-               </div>
-             )
-           })}
+                  <span className="px-2.5 py-0.5 bg-white text-emerald-800 text-xs font-semibold rounded-md border border-slate-200">
+                    {item.type}
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  {item.name}
+                </h3>
+                
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

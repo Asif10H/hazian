@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ChevronDown, ArrowRight, PhoneCall, MapPin, Eye } from "lucide-react";
+import { ChevronDown, ArrowRight, PhoneCall, MapPin, Eye, ShieldCheck, Users, Landmark } from "lucide-react";
 import siteData from "../data.json";
 
 const Hero = ({ data }) => {
@@ -14,7 +14,6 @@ const Hero = ({ data }) => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        // V1 returns count, V2 returns value
         const currentViews = data.count !== undefined ? data.count : data.value;
         if (currentViews !== undefined) {
           setViews(currentViews);
@@ -26,19 +25,22 @@ const Hero = ({ data }) => {
   return (
     <section
       id="home"
-      className="relative min-h-screen lg:h-screen w-full flex flex-col justify-center overflow-hidden bg-slate-950 pt-24 pb-16 lg:py-0"
+      className="relative min-h-[92vh] lg:min-h-screen w-full flex flex-col justify-center overflow-hidden bg-slate-950 pt-24 pb-16 lg:py-20"
     >
-      {/* Background Image with Slow Pan Overlay */}
+      {/* Background Image with Crisp Overlay */}
       <div
-        className="absolute inset-0 z-0 opacity-60 transition-transform duration-[20s] ease-linear scale-105"
+        className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url(${data.imageUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-slate-950/40 mix-blend-multiply" />
-        {/* Hidden img for SEO — Google can index this with proper alt text */}
+        {/* Dark overlay for optimal text contrast & legibility */}
+        <div className="absolute inset-0 bg-slate-950/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/50" />
+        
+        {/* Hidden SEO image */}
         <img
           src={data.imageUrl}
           alt="হাজিয়ান গ্রামের প্রাকৃতিক দৃশ্য — মাতামুহুরী নদীর তীরে সবুজ প্রকৃতি, চকরিয়া, কক্সবাজার"
@@ -50,104 +52,114 @@ const Hero = ({ data }) => {
         />
       </div>
 
-      {/* Complex Gradients for Depth */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent w-full md:w-[75%]" />
-      <div className="absolute inset-x-0 bottom-0 z-10 h-24 sm:h-28 bg-gradient-to-t from-white to-transparent" />
-
-      {/* Aurora glow on the left */}
-      <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-600/20 blur-[120px] pointer-events-none z-0" />
-
       {/* Main Content Grid */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mt-6 lg:mt-0">
-        {/* Left Column - Text & CTA */}
-        <div className="lg:col-span-7 flex flex-col items-start text-left w-full">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 shadow-2xl animate-fade-in">
-            <span className="text-emerald-300 font-semibold tracking-wider text-xs sm:text-sm uppercase">
-              ঐতিহ্য ও আধুনিকতার মেলবন্ধন
-            </span>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        
+        {/* Left Column: Heading & Information */}
+        <div className="lg:col-span-7 flex flex-col items-start text-left">
+          
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-semibold mb-6">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            ঐতিহ্যবাহী জনপদ • ফাঁসিয়াখালী ইউনিয়ন
           </div>
 
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white mb-6 leading-[1.1] animate-fade-in delay-100">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">
-              {data.title.split(" ")[0]}
-            </span>
-            <br />
-            <span className="text-emerald-400 drop-shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white mb-5 tracking-tight leading-[1.15]">
+            {data.title.split(" ")[0]}{" "}
+            <span className="text-emerald-400">
               {data.title.split(" ").slice(1).join(" ")}
             </span>
           </h1>
 
-          <p className="text-base sm:text-xl text-slate-300 mb-8 max-w-2xl leading-relaxed animate-fade-in delay-200 font-light border-l-4 border-emerald-500 pl-5">
+          <p className="text-base sm:text-lg text-slate-300 mb-8 max-w-2xl leading-relaxed font-normal">
             {data.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md sm:max-w-none sm:w-auto animate-fade-in delay-300">
+          <div className="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto">
             <a
               href="#about"
-              className="group px-7 py-3.5 font-bold text-base sm:text-lg text-slate-900 bg-emerald-400 rounded-xl hover:bg-emerald-300 hover:shadow-[0_0_35px_rgba(52,211,153,0.4)] transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2.5"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-colors shadow-sm"
             >
-              বিস্তারিত জানুন
-              <ArrowRight
-                size={20}
-                className="group-hover:translate-x-1 transition-transform"
-              />
+              গ্রামের বিবরণ দেখুন
+              <ArrowRight size={18} />
             </a>
+            
             <a
               href="#emergency"
-              className="group px-7 py-3.5 font-bold text-base sm:text-lg text-white bg-slate-900/50 border border-slate-700 backdrop-blur-xl rounded-xl hover:bg-slate-800 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2.5 hover:border-emerald-500/50"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-sm sm:text-base text-white bg-slate-900 border border-slate-700 hover:bg-slate-800 hover:border-slate-600 transition-colors"
             >
-              <PhoneCall
-                size={20}
-                className="text-emerald-400 group-hover:rotate-12 transition-transform"
-              />
-              জরুরী যোগাযোগ
+              <PhoneCall size={18} className="text-emerald-400" />
+              জরুরী সেবা নম্বর
             </a>
           </div>
         </div>
 
-        {/* Right Column - Premium Glass Cards */}
-        <div className="flex lg:col-span-5 relative h-[360px] sm:h-[420px] lg:h-[460px] items-center justify-center animate-fade-in delay-500 w-full mt-6 lg:mt-0">
-          <div className="relative lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 w-full max-w-md lg:w-80 bg-slate-900/50 backdrop-blur-2xl border border-white/10 p-5 sm:p-7 rounded-2xl sm:rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.5)] hover:scale-[1.02] transition-transform duration-500 z-20">
-            <div className="w-13 h-13 sm:w-14 sm:h-14 bg-gradient-to-br from-emerald-500 to-teal-700 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/30">
-              <MapPin className="text-white" size={28} />
+        {/* Right Column: Verified Civic Profile Card */}
+        <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
+          <div className="w-full max-w-md bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-2xl backdrop-blur-md">
+            
+            {/* Card Header */}
+            <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-5">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                  <MapPin size={22} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-white">হাজিয়ান গ্রাম বাতায়ন</h3>
+                  <p className="text-xs text-slate-400 font-medium">১নং ওয়ার্ড • চকরিয়া, কক্সবাজার</p>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
+                <ShieldCheck size={12} /> ভেরিফাইড
+              </span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">হাজিয়ান</h3>
-            <p className="text-slate-400 font-medium text-sm mb-5">চকরিয়া, কক্সবাজার</p>
 
+            {/* Structured Indicators */}
             <div className="space-y-3">
               {stats &&
                 stats.map((stat, i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-between border-b border-white/5 pb-2.5"
+                    className="flex items-center justify-between py-2 px-3 rounded-lg bg-slate-800/50 border border-slate-800"
                   >
-                    <span className="text-slate-400 font-medium text-sm sm:text-base">
+                    <span className="text-slate-400 text-sm font-medium">
                       {stat.label}
                     </span>
-                    <span className="text-white font-bold text-base bg-white/5 px-2.5 py-0.5 rounded-md border border-white/5">
+                    <span className="text-white font-bold text-sm sm:text-base">
                       {stat.value}
                     </span>
                   </div>
                 ))}
+
+              <div className="flex items-center justify-between py-2 px-3 rounded-lg bg-slate-800/50 border border-slate-800">
+                <span className="text-slate-400 text-sm font-medium flex items-center gap-1.5">
+                  উপজেলা ও জেলা
+                </span>
+                <span className="text-white font-bold text-sm">
+                  চকরিয়া, কক্সবাজার
+                </span>
+              </div>
+
               {views !== null && (
-                <div className="flex items-center justify-between pt-1.5">
-                  <span className="text-slate-400 font-medium flex items-center gap-1.5 text-sm sm:text-base">
-                    <Eye className="w-4 h-4 text-emerald-400" />
-                    মোট ভিজিটর
+                <div className="flex items-center justify-between py-2 px-3 rounded-lg bg-emerald-950/40 border border-emerald-800/40">
+                  <span className="text-emerald-300 text-sm font-medium flex items-center gap-1.5">
+                    <Eye size={16} /> মোট ভিজিটর
                   </span>
-                  <span className="text-emerald-400 font-bold text-base bg-emerald-500/10 px-2.5 py-0.5 rounded-md border border-emerald-500/20">
+                  <span className="text-emerald-400 font-bold text-sm sm:text-base font-mono">
                     {views.toLocaleString()}
                   </span>
                 </div>
               )}
             </div>
+
+            {/* Card Footer Note */}
+            <p className="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-500 text-center">
+              হাজিয়ান গ্রাম পরিচালনা কমিটি কর্তৃক পরিচালিত ডিজিটাল তথ্য সেবা
+            </p>
           </div>
-
-          <div className="absolute right-[10%] sm:right-20 top-[15%] w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-br from-emerald-600 to-teal-800 rounded-3xl rotate-12 opacity-70 blur-[2px] z-10 animate-pulse-soft mix-blend-screen shadow-[0_0_50px_rgba(16,185,129,0.5)]"></div>
         </div>
-      </div>
 
-     
+      </div>
+ 
     </section>
   );
 };
