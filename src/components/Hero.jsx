@@ -16,30 +16,23 @@ const Hero = ({ data }) => {
   const stats = siteData.village.about.stats;
   const [bgLoaded, setBgLoaded] = useState(false);
 
-  // Realistic dynamic visitor count without backend dependency
+  // Realistic dynamic visitor count starting from 7,423
   const [views, setViews] = useState(() => {
-    const START_DATE = new Date("2026-01-01T00:00:00Z").getTime();
-    const BASE_COUNT = 15840;
-    const now = new Date();
-    const daysDiff = Math.max(0, Math.floor((now.getTime() - START_DATE) / (1000 * 60 * 60 * 24)));
-    // Natural daily progression (~24 visits/day) + hourly daytime weight
-    const timeProgress = daysDiff * 24 + Math.floor((now.getHours() * 24) / 24);
-
+    const BASE_COUNT = 7423;
     let localOffset = 0;
     try {
-      const saved = localStorage.getItem("hazian_visit_count");
+      const saved = localStorage.getItem("hazian_visit_count_v2");
       localOffset = saved ? parseInt(saved, 10) : 0;
-      // Increment local count once per browser session
-      if (!sessionStorage.getItem("hazian_session_counted")) {
+      if (!sessionStorage.getItem("hazian_session_counted_v2")) {
         localOffset += 1;
-        localStorage.setItem("hazian_visit_count", localOffset.toString());
-        sessionStorage.setItem("hazian_session_counted", "1");
+        localStorage.setItem("hazian_visit_count_v2", localOffset.toString());
+        sessionStorage.setItem("hazian_session_counted_v2", "1");
       }
     } catch {
-      localOffset = 1;
+      localOffset = 0;
     }
 
-    return BASE_COUNT + timeProgress + localOffset;
+    return BASE_COUNT + Math.max(0, localOffset - 1);
   });
 
   useEffect(() => {
@@ -51,7 +44,7 @@ const Hero = ({ data }) => {
 
   useEffect(() => {
     // Background sync with free global counter if available
-    const namespace = "hazian-page-views";
+    const namespace = "hazian-page-views-7423";
     const key = "views";
     const url = `https://api.counterapi.dev/v1/${namespace}/${key}/up`;
 
@@ -60,11 +53,11 @@ const Hero = ({ data }) => {
       .then((resData) => {
         const count = resData.count !== undefined ? resData.count : resData.value;
         if (typeof count === "number" && count > 0) {
-          setViews((prev) => Math.max(prev, 15840 + count));
+          setViews((prev) => Math.max(prev, 7423 + count));
         }
       })
       .catch(() => {
-        // Silently preserve dynamic time-based count
+        // Silently preserve count
       });
   }, []);
 
