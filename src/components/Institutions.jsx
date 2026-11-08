@@ -19,10 +19,6 @@ const Institutions = ({ data }) => {
         
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12 reveal">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <Building size={14} />
-            সামাজিক ও ধর্মীয় প্রতিষ্ঠান
-          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
             {data.title}
           </h2>

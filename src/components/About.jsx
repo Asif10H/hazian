@@ -42,11 +42,6 @@ const About = ({ data }) => {
 
           {/* Right Column: Narrative & Stats */}
           <div className="lg:col-span-7 reveal reveal-delay-1">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4">
-              <Landmark size={14} />
-              {data.title}
-            </div>
-
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
               মাতামুহুরী নদীর পলিমাটিতে সমৃদ্ধ <br className="hidden sm:inline" />
               <span className="text-emerald-700 font-black">এক গৌরবোজ্জ্বল জনপদ</span>

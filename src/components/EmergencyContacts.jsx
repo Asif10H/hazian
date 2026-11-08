@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Siren, Flame, Waves, Globe, AlertTriangle } from 'lucide-react';
+import { Phone, Siren, Flame, Waves, Globe } from 'lucide-react';
 
 const EmergencyContacts = ({ data }) => {
   const iconMap = {
@@ -16,10 +16,6 @@ const EmergencyContacts = ({ data }) => {
         
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12 reveal">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold uppercase tracking-wider mb-3">
-            <AlertTriangle size={14} />
-            তাৎক্ষণিক জরুরি সেবা
-          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
             {data.title}
           </h2>

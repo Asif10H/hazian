@@ -108,12 +108,8 @@ const Gallery = ({ data }) => {
         
         {/* Section Header */}
         <div className="text-center mb-10 md:mb-12 reveal">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
-            <ImageIcon size={14} />
-            আলোকচিত্র সংকলন
-          </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight">
-            আমাদের গ্রামের স্থিরচিত্র
+            হাজিয়ান গ্রামের স্থিরচিত্র সংকলন
           </h2>
           <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
             হাজিয়ান গ্রামের প্রাকৃতিক নৈসর্গিক রূপ, নদী ও গ্রামীণ জীবনযাত্রার স্থিরচিত্র সংগ্রহ।
