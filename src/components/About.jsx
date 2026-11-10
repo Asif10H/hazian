@@ -24,15 +24,15 @@ const About = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Image with Full Aspect Ratio Framing (3:4 Natural Portrait) */}
+          {/* Left Column: Image with Clean Framing & Original Compact Height */}
           <div className="lg:col-span-5 relative reveal">
             <div 
               onClick={() => setIsLightboxOpen(true)}
-              className="rounded-2xl overflow-hidden border border-slate-200/90 shadow-lg bg-slate-100 relative group cursor-pointer"
+              className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative min-h-[300px] sm:min-h-[400px] group cursor-pointer"
               title="বড় করে দেখতে ক্লিক করুন"
             >
               {!isImageLoaded && (
-                <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400 aspect-[3/4]">
+                <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400">
                   <ImageIcon size={36} className="opacity-35" />
                 </div>
               )}
@@ -42,9 +42,9 @@ const About = ({ data }) => {
                 alt={imageAlt}
                 loading="lazy"
                 width="800"
-                height="1067"
+                height="550"
                 onLoad={() => setIsImageLoaded(true)}
-                className={`w-full aspect-[3/4] object-cover group-hover:scale-[1.02] transition-all duration-500 ease-out ${
+                className={`w-full h-[320px] sm:h-[420px] object-cover group-hover:scale-105 transition-all duration-700 ease-out ${
                   isImageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
               />
@@ -55,15 +55,11 @@ const About = ({ data }) => {
               </div>
             </div>
             
-            {/* Clean Caption Card Below Image (so it doesn't cover any part of the photo) */}
-            <div className="mt-3 bg-slate-50 border border-slate-200/80 p-3 rounded-xl shadow-2xs flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                <span>মাতামুহুরী নদী তীরবর্তী সবুজ ও উর্বর জনপদ</span>
+            <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm border border-slate-200/80 p-3.5 rounded-xl shadow-xs pointer-events-none">
+              <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                মাতামুহুরী নদী তীরবর্তী সবুজ ও উর্বর জনপদ
               </div>
-              <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100 shrink-0">
-                হাজিয়ান গ্রাম
-              </span>
             </div>
           </div>
 
