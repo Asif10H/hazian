@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Mail, Phone, ExternalLink, Navigation, Compass, Clock, ShieldCheck } from 'lucide-react';
+import { MapPin, Mail, Phone, ExternalLink, Navigation, Clock, ShieldCheck } from 'lucide-react';
 
 const Contact = ({ data }) => {
   return (
@@ -115,10 +115,6 @@ const Contact = ({ data }) => {
               </div>
 
               <div className="flex items-center gap-2">
-                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-700">
-                  <Compass size={11} className="text-emerald-400" />
-                  ২১°৩৯′ উ, ৯২°০৩′ পূ
-                </span>
                 <a
                   href="https://maps.app.goo.gl/YttXbSo8JCqcuF7r5"
                   target="_blank"
