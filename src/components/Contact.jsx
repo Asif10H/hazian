@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Mail, Phone, ExternalLink } from 'lucide-react';
+import { MapPin, Mail, Phone, ExternalLink, Navigation, Compass, Clock, ShieldCheck } from 'lucide-react';
 
 const Contact = ({ data }) => {
   return (
@@ -19,38 +19,47 @@ const Contact = ({ data }) => {
         {/* 2-Column Contact Info + Google Maps */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* Contact Details Card */}
-          <div className="lg:col-span-5 bg-slate-900 text-white p-6 sm:p-7 rounded-xl border border-slate-800 shadow-xs flex flex-col justify-between card-hover-lift reveal">
+          {/* Contact Details Card (5 Columns) */}
+          <div className="lg:col-span-5 bg-slate-900 text-white p-6 sm:p-7 rounded-2xl border border-slate-800 shadow-md flex flex-col justify-between card-hover-lift reveal">
             <div>
-              <h3 className="text-xl font-bold text-white mb-2">
-                গ্রাম তথ্য ও যোগাযোগ কেন্দ্র
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 font-normal mb-6 leading-relaxed">
-                ১নং ওয়ার্ড, ফাঁসিয়াখালী ইউনিয়ন পরিষদ, চকরিয়া, কক্সবাজার।
-              </p>
+              <div className="flex items-center justify-between gap-2 border-b border-slate-800 pb-4 mb-5">
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-1">
+                    গ্রাম তথ্য ও যোগাযোগ কেন্দ্র
+                  </h3>
+                  <p className="text-xs text-slate-400 font-medium">
+                    ১নং ওয়ার্ড, ফাঁসিয়াখালী ইউনিয়ন, চকরিয়া
+                  </p>
+                </div>
+                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20 shrink-0">
+                  <ShieldCheck size={13} /> অফিসিয়াল
+                </span>
+              </div>
 
               <div className="space-y-4">
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 border border-slate-700">
+                {/* Address */}
+                <div className="flex items-start gap-3.5 p-3 rounded-xl bg-slate-800/40 border border-slate-800">
+                  <div className="w-10 h-10 rounded-xl bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 border border-slate-700 shadow-xs">
                     <MapPin size={18} />
                   </div>
                   <div>
                     <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                      ঠিকানা
+                      ঠিকানা ও অবস্থান
                     </div>
-                    <p className="text-sm font-semibold text-white mt-0.5">
+                    <p className="text-sm font-semibold text-white mt-0.5 leading-snug">
                       {data.address}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 border border-slate-700">
+                {/* Email */}
+                <div className="flex items-start gap-3.5 p-3 rounded-xl bg-slate-800/40 border border-slate-800">
+                  <div className="w-10 h-10 rounded-xl bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 border border-slate-700 shadow-xs">
                     <Mail size={18} />
                   </div>
                   <div>
                     <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                      ইমেইল
+                      ইমেইল যোগাযোগ
                     </div>
                     <a 
                       href={`mailto:${data.email}`} 
@@ -61,17 +70,18 @@ const Contact = ({ data }) => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5">
-                  <div className="w-9 h-9 rounded-lg bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 border border-slate-700">
+                {/* Emergency Helpline */}
+                <div className="flex items-start gap-3.5 p-3 rounded-xl bg-emerald-950/30 border border-emerald-800/40">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-900/60 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-700/50 shadow-xs">
                     <Phone size={18} />
                   </div>
                   <div>
-                    <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                      জরুরি হেল্পলাইন
+                    <div className="text-[11px] font-semibold text-emerald-300 uppercase tracking-wider">
+                      জরুরি নাগরিক হেল্পলাইন
                     </div>
                     <a 
                       href={`tel:${data.phone}`} 
-                      className="text-sm font-semibold text-white hover:text-emerald-400 transition-colors mt-0.5 block"
+                      className="text-sm sm:text-base font-bold text-emerald-400 font-mono hover:text-emerald-300 transition-colors mt-0.5 block"
                     >
                       {data.phone}
                     </a>
@@ -80,36 +90,97 @@ const Contact = ({ data }) => {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-slate-800 mt-6 text-xs text-slate-400">
-              কার্যদিবস: রবিবার হতে বৃহস্পতিবার (সকাল ৯টা হতে বিকাল ৫টা)
+            {/* Working Hours */}
+            <div className="pt-4 border-t border-slate-800 mt-6 flex items-center gap-2 text-xs text-slate-400">
+              <Clock size={14} className="text-emerald-400 shrink-0" />
+              <span>কার্যদিবস: রবিবার হতে বৃহস্পতিবার (সকাল ৯টা – বিকাল ৫টা)</span>
             </div>
           </div>
 
-          {/* Interactive Google Maps Frame */}
-          <div className="lg:col-span-7 bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-xs relative min-h-[360px] sm:min-h-[420px] reveal reveal-delay-2 card-hover-lift">
-            <iframe 
-              src="https://maps.google.com/maps?q=Q34R%2BGQ9,+Kakara&t=m&z=15&output=embed&iwloc=near"
-              title="Hazian Map"
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, position: 'absolute', top: 0, left: 0 }} 
-              allowFullScreen="" 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full"
-            />
+          {/* Premium Google Maps Card (7 Columns) */}
+          <div className="lg:col-span-7 bg-slate-900 rounded-2xl border border-slate-800 shadow-xl overflow-hidden flex flex-col relative min-h-[440px] sm:min-h-[480px] card-hover-lift reveal reveal-delay-1">
             
-            <div className="absolute top-4 left-4 z-10">
-              <a 
-                href="https://maps.app.goo.gl/YttXbSo8JCqcuF7r5" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="px-3.5 py-2 bg-white/95 backdrop-blur-xs text-slate-800 text-xs font-bold rounded-lg shadow-sm hover:bg-emerald-600 hover:text-white transition-colors inline-flex items-center gap-1.5 border border-slate-200"
-              >
-                <ExternalLink size={14} />
-                গুগল ম্যাপে বড় করে দেখুন
-              </a>
+            {/* Top Premium Map Header Bar */}
+            <div className="bg-slate-900/95 backdrop-blur-md px-4 py-3 border-b border-slate-800 flex items-center justify-between gap-3 z-10 shrink-0">
+              <div className="flex items-center gap-2.5">
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <div>
+                  <h4 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+                    <span>হাজিয়ান গ্রাম লাইভ স্যাটেলাইট মানচিত্র</span>
+                  </h4>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-700">
+                  <Compass size={11} className="text-emerald-400" />
+                  ২১°৩৯′ উ, ৯২°০৩′ পূ
+                </span>
+                <a
+                  href="https://maps.app.goo.gl/YttXbSo8JCqcuF7r5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg shadow-xs transition-colors inline-flex items-center gap-1"
+                  title="গুগল ম্যাপে বড় করে দেখুন"
+                >
+                  <ExternalLink size={12} />
+                  <span>ওপেন ম্যাপ</span>
+                </a>
+              </div>
             </div>
+
+            {/* Live Interactive Google Map Frame */}
+            <div className="relative flex-1 w-full h-full min-h-[300px]">
+              <iframe 
+                src="https://maps.google.com/maps?q=Q34R%2BGQ9,+Kakara&t=m&z=15&output=embed&iwloc=near"
+                title="Hazian Map"
+                width="100%" 
+                height="100%" 
+                style={{ border: 0, position: 'absolute', top: 0, left: 0 }} 
+                allowFullScreen="" 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full grayscale-[15%] contrast-[1.05]"
+              />
+
+              {/* Floating Bottom Location & Directions Overlay */}
+              <div className="absolute bottom-3.5 left-3.5 right-3.5 z-10">
+                <div className="bg-slate-950/90 backdrop-blur-md border border-slate-800/90 p-3.5 sm:p-4 rounded-xl shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-white">
+                  
+                  <div className="flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/30 mt-0.5">
+                      <MapPin size={16} />
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-bold text-white flex items-center gap-1.5">
+                        <span>হাজিয়ান গ্রাম, ১নং ওয়ার্ড</span>
+                        <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-1.5 py-0.2 rounded border border-emerald-500/20 font-normal">
+                          চকরিয়া
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-slate-300 font-normal mt-0.5">
+                        মাতামুহুরী নদীর উত্তর তীরবর্তী • চকরিয়া সদর হতে দূরত্ব প্রায় ৪ কিমি
+                      </p>
+                    </div>
+                  </div>
+
+                  <a 
+                    href="https://maps.app.goo.gl/YttXbSo8JCqcuF7r5" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-full sm:w-auto px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs sm:text-sm font-bold rounded-lg shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all inline-flex items-center justify-center gap-1.5 shrink-0"
+                  >
+                    <Navigation size={14} className="text-slate-950 fill-current" />
+                    <span>দিকনির্দেশনা পান</span>
+                  </a>
+
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>
