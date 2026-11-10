@@ -84,8 +84,8 @@ const WeatherPrayerWidget = () => {
     };
   }, []);
 
-  // Compute Next Prayer directly via useMemo (avoids cascading effect renders)
-  const nextPrayerName = useMemo(() => {
+  // Compute Current Active Prayer & Next Prayer directly via useMemo
+  const prayerStatus = useMemo(() => {
     const now = new Date();
     const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
@@ -100,12 +100,27 @@ const WeatherPrayerWidget = () => {
     const maghribMin = toMinutes(prayerTimes.Maghrib);
     const ishaMin = toMinutes(prayerTimes.Isha);
 
-    if (currentMinutes < fajrMin) return 'ফজর';
-    if (currentMinutes < dhuhrMin) return 'জোহর';
-    if (currentMinutes < asrMin) return 'আসর';
-    if (currentMinutes < maghribMin) return 'মাগরিব';
-    if (currentMinutes < ishaMin) return 'এশা';
-    return 'ফজর';
+    let current = 'এশা';
+    let next = 'ফজর';
+
+    if (currentMinutes >= fajrMin && currentMinutes < dhuhrMin) {
+      current = 'ফজর';
+      next = 'জোহর';
+    } else if (currentMinutes >= dhuhrMin && currentMinutes < asrMin) {
+      current = 'জোহর';
+      next = 'আসর';
+    } else if (currentMinutes >= asrMin && currentMinutes < maghribMin) {
+      current = 'আসর';
+      next = 'মাগরিব';
+    } else if (currentMinutes >= maghribMin && currentMinutes < ishaMin) {
+      current = 'মাগরিব';
+      next = 'এশা';
+    } else {
+      current = 'এশা';
+      next = 'ফজর';
+    }
+
+    return { current, next };
   }, [prayerTimes]);
 
   const weatherMeta = getWeatherMeta(weather.weathercode);
@@ -167,25 +182,26 @@ const WeatherPrayerWidget = () => {
 
               <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                পরবর্তী ওয়াক্ত: {nextPrayerName}
+                চলমান ওয়াক্ত: {prayerStatus.current} (পরবর্তী: {prayerStatus.next})
               </div>
             </div>
 
             {/* 5 Waqt Chips Grid */}
             <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
               {prayerSchedule.map((item) => {
-                const isNext = nextPrayerName === item.label;
+                const isCurrent = prayerStatus.current === item.label;
                 return (
                   <div
                     key={item.key}
                     className={`py-1.5 px-1 sm:px-2 rounded-lg text-center border transition-all ${
-                      isNext
-                        ? 'bg-emerald-950/60 border-emerald-500/40 text-emerald-200 shadow-xs ring-1 ring-emerald-500/30'
+                      isCurrent
+                        ? 'bg-emerald-950/70 border-emerald-500/50 text-emerald-200 shadow-xs ring-1 ring-emerald-500/30'
                         : 'bg-slate-800/50 border-slate-800 text-slate-300'
                     }`}
                   >
-                    <div className="text-[10px] sm:text-[11px] font-semibold text-slate-400">
-                      {item.label}
+                    <div className="flex items-center justify-center gap-1 text-[10px] sm:text-[11px] font-semibold text-slate-400">
+                      {isCurrent && <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />}
+                      <span>{item.label}</span>
                     </div>
                     <div className="text-xs sm:text-sm font-black font-mono mt-0.5 text-white">
                       {formatTo12HourBengali(item.time)}
