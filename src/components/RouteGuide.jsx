@@ -3,7 +3,6 @@ import {
   Navigation, 
   MapPin, 
   Clock, 
-  ArrowRight, 
   Info, 
   CheckCircle2, 
   Car, 
@@ -169,6 +168,13 @@ const RouteGuide = ({ data }) => {
                 </div>
               );
             })}
+          </div>
+
+          {/* Fare Disclaimer Note */}
+          <div className="mt-3.5 text-center sm:text-right">
+            <span className="text-[11px] sm:text-xs text-slate-500 font-medium italic">
+              * {data.fareNotice || "সময়, জ্বালানি মূল্য ও পরিস্থিতির ওপর ভিত্তি করে যানবাহনের আনুমানিক ভাড়া কিছুটা কম-বেশি হতে পারে।"}
+            </span>
           </div>
         </div>
 
