@@ -33,25 +33,18 @@ const About = ({ data }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           
-          {/* Left Column: Card with Full Image (No Cropping, No Click Popup) */}
+          {/* Left Column: Card with Full Edge-to-Edge Image */}
           <div className="lg:col-span-5 relative reveal">
-            <div className="rounded-2xl overflow-hidden border border-slate-200/90 shadow-md bg-white flex flex-col">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-white flex flex-col group">
               
-              {/* Image Frame Container - Shows 100% Full Image */}
-              <div className="relative h-[290px] sm:h-[340px] lg:h-[370px] bg-slate-950 flex items-center justify-center overflow-hidden">
+              {/* Image Frame Container - Image fills the entire card (No black borders) */}
+              <div className="relative w-full h-[300px] sm:h-[350px] lg:h-[380px] bg-slate-100 overflow-hidden">
                 {!isImageLoaded && (
                   <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400">
                     <ImageIcon size={34} className="opacity-35" />
                   </div>
                 )}
 
-                {/* Ambient Soft Blurred Backdrop of the Village Photo */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center blur-lg opacity-35 scale-110 pointer-events-none"
-                  style={{ backgroundImage: `url(${imageUrl})` }}
-                />
-
-                {/* Full Uncropped Image */}
                 <img
                   src={imageUrl}
                   alt={imageAlt}
@@ -59,7 +52,7 @@ const About = ({ data }) => {
                   width="800"
                   height="850"
                   onLoad={() => setIsImageLoaded(true)}
-                  className={`relative z-10 max-h-full max-w-full object-contain drop-shadow-md transition-opacity duration-500 ${
+                  className={`w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out ${
                     isImageLoaded ? 'opacity-100' : 'opacity-0'
                   }`}
                 />
