@@ -5,18 +5,14 @@ import {
   MapPin, 
   CheckCircle2, 
   ChevronDown, 
-  Image as ImageIcon,
-  Maximize2,
-  X
+  Image as ImageIcon 
 } from 'lucide-react';
 
 const About = ({ data }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const icons = [Users, Landmark, MapPin];
 
   const imageUrl = "https://ik.imagekit.io/pswee0uqu/hazian/IMG_3529.HEIC?tr=w-800,f-auto,q-80";
-  const imageFullUrl = "https://ik.imagekit.io/pswee0uqu/hazian/IMG_3529.HEIC?tr=w-1600,f-auto,q-90";
   const imageAlt = "হাজিয়ান গ্রামের প্রাকৃতিক দৃশ্য - মাতামুহুরী নদীর তীরে সবুজ প্রকৃতি, চকরিয়া, কক্সবাজার";
 
   return (
@@ -37,42 +33,49 @@ const About = ({ data }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           
-          {/* Left Column: Image with Clean Framing & Balanced Height */}
+          {/* Left Column: Card with Full Image (No Cropping, No Click Popup) */}
           <div className="lg:col-span-5 relative reveal">
-            <div 
-              onClick={() => setIsLightboxOpen(true)}
-              className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative min-h-[280px] sm:min-h-[350px] lg:min-h-[380px] group cursor-pointer"
-              title="বড় করে দেখতে ক্লিক করুন"
-            >
-              {!isImageLoaded && (
-                <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400">
-                  <ImageIcon size={34} className="opacity-35" />
+            <div className="rounded-2xl overflow-hidden border border-slate-200/90 shadow-md bg-white flex flex-col">
+              
+              {/* Image Frame Container - Shows 100% Full Image */}
+              <div className="relative h-[290px] sm:h-[340px] lg:h-[370px] bg-slate-950 flex items-center justify-center overflow-hidden">
+                {!isImageLoaded && (
+                  <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400">
+                    <ImageIcon size={34} className="opacity-35" />
+                  </div>
+                )}
+
+                {/* Ambient Soft Blurred Backdrop of the Village Photo */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center blur-lg opacity-35 scale-110 pointer-events-none"
+                  style={{ backgroundImage: `url(${imageUrl})` }}
+                />
+
+                {/* Full Uncropped Image */}
+                <img
+                  src={imageUrl}
+                  alt={imageAlt}
+                  loading="lazy"
+                  width="800"
+                  height="850"
+                  onLoad={() => setIsImageLoaded(true)}
+                  className={`relative z-10 max-h-full max-w-full object-contain drop-shadow-md transition-opacity duration-500 ${
+                    isImageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              </div>
+
+              {/* Integrated Bottom Caption Bar */}
+              <div className="p-3 bg-white border-t border-slate-100 flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                  <span className="truncate">মাতামুহুরী নদী তীরবর্তী সবুজ ও উর্বর জনপদ</span>
                 </div>
-              )}
-
-              <img
-                src={imageUrl}
-                alt={imageAlt}
-                loading="lazy"
-                width="800"
-                height="850"
-                onLoad={() => setIsImageLoaded(true)}
-                className={`w-full h-[280px] sm:h-[350px] lg:h-[380px] object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out ${
-                  isImageLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-
-              {/* Hover Zoom Hint */}
-              <div className="absolute top-3 right-3 p-1.5 sm:p-2 rounded-xl bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
-                <Maximize2 size={15} />
+                <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-100 shrink-0">
+                  হাজিয়ান গ্রাম
+                </span>
               </div>
-            </div>
-            
-            <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm border border-slate-200/80 p-2.5 sm:p-3 rounded-xl shadow-xs pointer-events-none">
-              <div className="flex items-center gap-2 text-[11px] sm:text-xs font-bold text-slate-700">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                <span className="truncate">মাতামুহুরী নদী তীরবর্তী সবুজ ও উর্বর জনপদ</span>
-              </div>
+
             </div>
           </div>
 
@@ -133,41 +136,6 @@ const About = ({ data }) => {
 
         </div>
       </div>
-
-      {/* Lightbox Modal for Full View */}
-      {isLightboxOpen && (
-        <div 
-          onClick={() => setIsLightboxOpen(false)}
-          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
-        >
-          <div 
-            onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl max-h-[90vh] bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col"
-          >
-            <div className="p-3.5 border-b border-slate-800 flex items-center justify-between text-white">
-              <span className="text-xs sm:text-sm font-bold flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                মাতামুহুরী নদী তীরবর্তী সবুজ ও উর্বর জনপদ • হাজিয়ান গ্রাম
-              </span>
-              <button 
-                onClick={() => setIsLightboxOpen(false)}
-                className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
-                title="বন্ধ করুন"
-              >
-                <X size={18} />
-              </button>
-            </div>
-            
-            <div className="p-2 flex items-center justify-center bg-black/60 overflow-auto">
-              <img 
-                src={imageFullUrl} 
-                alt={imageAlt}
-                className="max-h-[75vh] w-auto object-contain rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
