@@ -24,16 +24,16 @@ const About = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Image with Clean Framing & Original Compact Height */}
+          {/* Left Column: Image with Clean Framing & Compact Small Height */}
           <div className="lg:col-span-5 relative reveal">
             <div 
               onClick={() => setIsLightboxOpen(true)}
-              className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative min-h-[300px] sm:min-h-[400px] group cursor-pointer"
+              className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative min-h-[240px] sm:min-h-[300px] lg:min-h-[330px] group cursor-pointer"
               title="বড় করে দেখতে ক্লিক করুন"
             >
               {!isImageLoaded && (
                 <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400">
-                  <ImageIcon size={36} className="opacity-35" />
+                  <ImageIcon size={32} className="opacity-35" />
                 </div>
               )}
 
@@ -44,21 +44,21 @@ const About = ({ data }) => {
                 width="800"
                 height="550"
                 onLoad={() => setIsImageLoaded(true)}
-                className={`w-full h-[320px] sm:h-[420px] object-cover group-hover:scale-105 transition-all duration-700 ease-out ${
+                className={`w-full h-[250px] sm:h-[310px] lg:h-[340px] object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out ${
                   isImageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
               />
 
               {/* Hover Zoom Hint */}
-              <div className="absolute top-3 right-3 p-2 rounded-xl bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
-                <Maximize2 size={16} />
+              <div className="absolute top-3 right-3 p-1.5 sm:p-2 rounded-xl bg-slate-900/70 hover:bg-slate-900 text-white backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                <Maximize2 size={15} />
               </div>
             </div>
             
-            <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm border border-slate-200/80 p-3.5 rounded-xl shadow-xs pointer-events-none">
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                মাতামুহুরী নদী তীরবর্তী সবুজ ও উর্বর জনপদ
+            <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur-sm border border-slate-200/80 p-2.5 sm:p-3 rounded-xl shadow-xs pointer-events-none">
+              <div className="flex items-center gap-2 text-[11px] sm:text-xs font-bold text-slate-700">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <span className="truncate">মাতামুহুরী নদী তীরবর্তী সবুজ ও উর্বর জনপদ</span>
               </div>
             </div>
           </div>
