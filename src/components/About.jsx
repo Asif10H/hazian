@@ -22,7 +22,20 @@ const About = ({ data }) => {
   return (
     <section id="about" className="section-padding bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        {/* Mobile Only Heading (Shows first on mobile screens for natural flow) */}
+        <div className="lg:hidden mb-6 reveal">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold mb-3 border border-emerald-200 shadow-2xs">
+            <MapPin size={13} className="text-emerald-600" />
+            <span>গ্রাম পরিচিতি</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            মাতামুহুরী নদীর পলিমাটিতে সমৃদ্ধ <br />
+            <span className="text-emerald-700">এক গৌরবোজ্জ্বল জনপদ</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
           
           {/* Left Column: Image with Clean Framing & Balanced Height */}
           <div className="lg:col-span-5 relative reveal">
@@ -65,10 +78,17 @@ const About = ({ data }) => {
 
           {/* Right Column: Narrative & Stats */}
           <div className="lg:col-span-7 reveal reveal-delay-1">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
-              মাতামুহুরী নদীর পলিমাটিতে সমৃদ্ধ <br className="hidden sm:inline" />
-              <span className="text-emerald-700 font-black">এক গৌরবোজ্জ্বল জনপদ</span>
-            </h2>
+            {/* Desktop Only Heading (Shows beside image on larger screens) */}
+            <div className="hidden lg:block mb-4">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold mb-3 border border-emerald-200 shadow-2xs">
+                <MapPin size={13} className="text-emerald-600" />
+                <span>গ্রাম পরিচিতি</span>
+              </div>
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                মাতামুহুরী নদীর পলিমাটিতে সমৃদ্ধ <br />
+                <span className="text-emerald-700">এক গৌরবোজ্জ্বল জনপদ</span>
+              </h2>
+            </div>
 
             <p className="text-base sm:text-lg text-slate-600 mb-6 leading-relaxed">
               {data.description}
