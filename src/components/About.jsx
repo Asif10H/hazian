@@ -24,16 +24,16 @@ const About = ({ data }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Image with Clean Framing & Compact Small Height */}
+          {/* Left Column: Image with Clean Framing & Balanced Height */}
           <div className="lg:col-span-5 relative reveal">
             <div 
               onClick={() => setIsLightboxOpen(true)}
-              className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative min-h-[240px] sm:min-h-[300px] lg:min-h-[330px] group cursor-pointer"
+              className="rounded-2xl overflow-hidden border border-slate-200 shadow-md bg-slate-100 relative min-h-[280px] sm:min-h-[350px] lg:min-h-[380px] group cursor-pointer"
               title="বড় করে দেখতে ক্লিক করুন"
             >
               {!isImageLoaded && (
                 <div className="absolute inset-0 skeleton-shimmer flex items-center justify-center text-slate-400">
-                  <ImageIcon size={32} className="opacity-35" />
+                  <ImageIcon size={34} className="opacity-35" />
                 </div>
               )}
 
@@ -42,9 +42,9 @@ const About = ({ data }) => {
                 alt={imageAlt}
                 loading="lazy"
                 width="800"
-                height="550"
+                height="850"
                 onLoad={() => setIsImageLoaded(true)}
-                className={`w-full h-[250px] sm:h-[310px] lg:h-[340px] object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out ${
+                className={`w-full h-[280px] sm:h-[350px] lg:h-[380px] object-cover object-center group-hover:scale-105 transition-all duration-700 ease-out ${
                   isImageLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
               />
