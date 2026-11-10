@@ -184,9 +184,9 @@ const Notables = ({ data }) => {
                     {person.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-md bg-slate-100 text-slate-600"
+                        className="inline-flex items-center gap-1 text-[10px] font-medium px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200/40"
                       >
-                        <Tag size={9} /> {tag}
+                        <Tag size={8} className="text-slate-400" /> {tag}
                       </span>
                     ))}
                   </div>
