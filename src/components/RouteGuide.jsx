@@ -11,7 +11,6 @@ import {
   Bus,
   Waves,
   Milestone,
-  ExternalLink,
   ChevronRight,
   Flag,
   ArrowRight,
@@ -104,31 +103,19 @@ const RouteGuide = ({ data }) => {
         {/* ========================================================================= */}
         <div className="mb-12 sm:mb-14 reveal">
           
-          {/* Subheader with Step Mode and Direct Maps Link */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6">
-            <div className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs">
-                <Navigation size={16} />
-              </span>
-              <div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                  ধাপে ধাপে যাতায়াত নির্দেশিকা
-                </h3>
-                <p className="text-xs text-slate-500">
-                  চকরিয়া থেকে হাজিয়ান গ্রামে পৌঁছানোর ৪টি প্রধান ট্রানজিট পয়েন্ট
-                </p>
-              </div>
+          {/* Subheader with Step Title */}
+          <div className="flex items-center gap-2.5 mb-6">
+            <span className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-xs">
+              <Navigation size={16} />
+            </span>
+            <div>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900">
+                ধাপে ধাপে যাতায়াত নির্দেশিকা
+              </h3>
+              <p className="text-xs text-slate-500">
+                চকরিয়া থেকে হাজিয়ান গ্রামে পৌঁছানোর ৪টি প্রধান ট্রানজিট পয়েন্ট
+              </p>
             </div>
-
-            <a 
-              href="https://maps.app.goo.gl/YttXbSo8JCqcuF7r5"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 text-xs font-bold rounded-xl border border-slate-200 hover:border-emerald-300 shadow-2xs transition-all"
-            >
-              <ExternalLink size={13} className="text-emerald-600" />
-              <span>গুগল ম্যাপে লাইভ রুট দেখুন</span>
-            </a>
           </div>
 
           {/* Desktop Visual Asphalt Highway Track (Visible on lg screens) */}
