@@ -12,6 +12,7 @@ import EmergencyContacts from "./components/EmergencyContacts";
 import Notables from "./components/Notables";
 import Gallery from "./components/Gallery";
 import FAQ from "./components/FAQ";
+import RouteGuide from "./components/RouteGuide";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -50,6 +51,9 @@ function App() {
 
         {/* Frequently Asked Questions */}
         <FAQ data={village.faq} />
+
+        {/* Travel & Route Guide */}
+        <RouteGuide data={village.routeGuide} />
 
         {/* Contact */}
         <Contact data={village.contact} />

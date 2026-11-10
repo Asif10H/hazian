@@ -32,6 +32,7 @@ const Navbar = ({ data }) => {
       'emergency',
       'gallery',
       'faq',
+      'route',
       'contact',
     ];
 

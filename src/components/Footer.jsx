@@ -32,6 +32,7 @@ const Footer = () => {
             <a href="#emergency" className="hover:text-emerald-700 transition-colors">জরুরী নম্বর</a>
             <a href="#gallery" className="hover:text-emerald-700 transition-colors">গ্যালারি</a>
             <a href="#faq" className="hover:text-emerald-700 transition-colors">প্রশ্নোত্তর</a>
+            <a href="#route" className="hover:text-emerald-700 transition-colors">যাতায়াত</a>
             <a href="#contact" className="hover:text-emerald-700 transition-colors">যোগাযোগ</a>
           </nav>
         </div>
