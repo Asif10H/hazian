@@ -135,7 +135,7 @@ const Contact = ({ data }) => {
             {/* Live Interactive Google Map Frame */}
             <div className="relative flex-1 w-full h-full min-h-[300px]">
               <iframe 
-                src="https://maps.google.com/maps?q=Q34R%2BGQ9,+Kakara&t=m&z=15&output=embed&iwloc=near"
+                src="https://maps.google.com/maps?q=Hazian,+Fasiakhali,+Chakaria&hl=bn&t=m&z=15&output=embed"
                 title="Hazian Map"
                 width="100%" 
                 height="100%" 
