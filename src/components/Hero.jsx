@@ -174,10 +174,6 @@ const Hero = ({ data }) => {
 
               <div className="flex items-center justify-between py-2 px-3 rounded-lg bg-emerald-950/40 border border-emerald-800/40">
                 <span className="text-emerald-300 text-sm font-medium flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
                   <Eye size={15} className="text-emerald-400" /> মোট দর্শনার্থী
                 </span>
                 <span className="text-emerald-400 font-bold text-sm sm:text-base font-mono flex items-center gap-1">
