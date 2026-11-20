@@ -131,7 +131,7 @@ const Contact = ({ data }) => {
             {/* Live Interactive Google Map Frame */}
             <div className="relative flex-1 w-full h-full min-h-[300px]">
               <iframe 
-                src="https://maps.google.com/maps?q=Abdus+Sobahan+Manzil&hl=bn&t=m&z=17&output=embed"
+                src="https://maps.google.com/maps?q=Hazian,+Chakaria&hl=bn&t=m&z=14&output=embed"
                 title="Hazian Map"
                 width="100%" 
                 height="100%" 
