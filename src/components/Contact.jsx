@@ -116,7 +116,7 @@ const Contact = ({ data }) => {
 
               <div className="flex items-center gap-2">
                 <a
-                  href="https://maps.app.goo.gl/YttXbSo8JCqcuF7r5"
+                  href="https://maps.app.goo.gl/PkzEh6ADPcjtKw7U8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg shadow-xs transition-colors inline-flex items-center gap-1"
@@ -131,7 +131,7 @@ const Contact = ({ data }) => {
             {/* Live Interactive Google Map Frame */}
             <div className="relative flex-1 w-full h-full min-h-[300px]">
               <iframe 
-                src="https://maps.google.com/maps?q=Hazian,+Fasiakhali,+Chakaria&hl=bn&t=m&z=15&output=embed"
+                src="https://maps.google.com/maps?q=Hazian,+Chakaria&hl=bn&t=m&z=15&output=embed"
                 title="Hazian Map"
                 width="100%" 
                 height="100%" 
@@ -164,7 +164,7 @@ const Contact = ({ data }) => {
                   </div>
 
                   <a 
-                    href="https://maps.app.goo.gl/YttXbSo8JCqcuF7r5" 
+                    href="https://maps.app.goo.gl/PkzEh6ADPcjtKw7U8" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="w-full sm:w-auto px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs sm:text-sm font-bold rounded-lg shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all inline-flex items-center justify-center gap-1.5 shrink-0"
